@@ -17,55 +17,244 @@
 -->  
   <body>
     <!-- Parallax Pixel Background Animation -->
-    <section class="animated-background">
+    <section class="animated-background" aria-hidden="true">
       <div id="stars1"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
+      <div class="arena-floor"></div>
     </section>
     <!-- End of Parallax Pixel Background Animation -->
 
+    <div class="cursor-follower" aria-hidden="true"></div>
     
-    <a id="profilePicture" href="https://relecker.com" target="_blank">
-      <img src="headshot.jpeg" alt="Profile Picture">
-    </a>
+    
+    <main class="chat-shell" id="chatShell">
+      <div class="chat-shell__shards" aria-hidden="true"></div>
+      <header class="chat-profile">
+        <a id="profilePicture" href="https://relecker.com" target="_blank">
+          <img src="headshot.jpeg" alt="Profile Picture">
+        </a>
+        <div class="profile-copy">
+          <h1 class="profile-name">Ian Relecker</h1>
+          <p class="profile-tagline">computer person</p>
+        </div>
+      </header>
 
-    <div id="userName">
-      Ian Relecker
-    </div>
+      <div class="chat-body">
+        <aside class="links-panel" aria-label="Quick links">
+          <h2>Quick Links</h2>
+          <div id="links">
+            <a class="link" href="https://dioxideai.com" target="_blank">
+              <i class="fas fa-server">&nbsp;</i>Dioxide AI Chatbot
+            </a>
+            <a class="link" href="https://www.linkedin.com/in/ian-relecker/" target="_blank">
+              <i class="fab fa-linkedin">&nbsp;</i>Linkedin
+            </a>
+            <a class="link" rel="me" href="https://github.com/ianrelecker" target="_blank">
+              <i class="fab fa-github">&nbsp;</i>Github
+            </a>
+            <a class="link" rel="me" href="https://x.com/ianrelecker" target="_blank">
+              <span class="icon-x" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M18.244 2h2.956l-6.457 7.373L22 22h-6.095l-4.265-5.579L6.844 22H3.888l6.906-7.895L2 2h6.274l3.852 5.107L18.244 2zm-1.04 18h1.638L8.872 4h-1.64l10.973 16z"/>
+                </svg>
+              </span>
+              X Account
+            </a>
+          </div>
+        </aside>
 
-    <div id="userName">
-      Naturally Curious.
-    </div>
-
-    <div id="links">
-    </div>
-
-    <div id="userName">
-      M.S. Information Technology - Cybersecurity
-    </div>
-
-    <div id="userName">
-      B.S. Computer Science
-    </div>
-
-    <div id="links">
-      <a class="link" href="https://dioxideai.com" target="_blank">
-        <i class="fas fa-server">&nbsp;</i>Dioxide AI Chatbot
-      </a>
-      <a class="link" href="https://www.linkedin.com/in/ian-relecker/" target="_blank">
-        <i class="fab fa-linkedin">&nbsp;</i>Linkedin
-      </a>
-      <a class="link" rel="me" href="https://github.com/ianrelecker" target="_blank">
-        <i class="fab fa-github">&nbsp;</i>Github
-      </a>
-      <a class="link" rel="me" href="https://x.com/ianrelecker" target="_blank">
-        <i class="fa-x-twitter">&nbsp;</i>X (Twitter)
-      </a>
-      
-</div>
+        <section class="chat-window" aria-label="Conversation with Ian's AI concierge">
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          <div class="question-panel" aria-label="Suggested questions">
+            <div class="question-panel__box">
+              <p class="question-panel__title">Pick a question to ask</p>
+              <div class="question-buttons">
+                <button class="question-button" type="button" data-question="work">
+                  What are you building right now?
+                </button>
+                <button class="question-button" type="button" data-question="background">
+                  What's your background?
+                </button>
+                <button class="question-button" type="button" data-question="expertise">
+                  Where do you add the most value?
+                </button>
+                <button class="question-button" type="button" data-question="security">
+                  How do you think about security?
+                </button>
+                <button class="question-button" type="button" data-question="learning">
+                  What's on your learning roadmap right now?
+                </button>
+                <button class="question-button" type="button" data-question="contact">
+                  How can I connect with you?
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
     <div id="hashtag">
-      
+      Stay curious.
     </div>
+    <script>
+      (function () {
+        const chatLog = document.getElementById('chatLog');
+        const buttons = document.querySelectorAll('[data-question]');
+        const hashtag = document.getElementById('hashtag');
+        const chatShell = document.getElementById('chatShell');
+        const shardsContainer = document.querySelector('.chat-shell__shards');
+        let breakTimeout = null;
+
+        const responses = {
+          work: [
+            "I'm iterating on Dioxide AI — a secure chatbot interface that helps regulated teams bring AI to their workflows without leaking context.",
+            "It blends my security background with product intuition so orgs can move fast while keeping sensitive data guarded."
+          ],
+          background: [
+            "I earned an M.S. in Information Technology (Cybersecurity concentration) and a B.S. in Computer Science.",
+            "That blend of formal training and hands-on building keeps me grounded in both theory and execution.",
+            "Right now I partner with teams as an IT / Cybersecurity consultant, translating security principles into pragmatic roadmaps."
+          ],
+          expertise: [
+            "I help teams ship AI-enabled products with secure-by-design architecture, tight feedback loops, and measurable reliability.",
+            "Threat modeling, incident response planning, and AI guardrail design are where I get most excited."
+          ],
+          security: [
+            "Security is a culture, not a checklist. I focus on reducing blast radius, instrumenting everything, and keeping humans in the loop.",
+            "When AI is involved, I double down on auditability and privacy so models become force multipliers instead of liabilities."
+          ],
+          learning: [
+            "I'm deep-diving into Kubernetes internals so I can reason about schedulers, networking, and policy as-code without relying on black boxes.",
+            "In parallel, I'm automating cloud infra pipelines so spinning up hardened, audit-ready environments takes minutes instead of days."
+          ],
+          contact: [
+            "Tap any of the quick links below to reach me on your preferred platform.",
+            "For sensitive conversations, grab my PGP key from security.txt or message me on Signal (@relecker.01)."
+          ]
+        };
+
+        const addMessage = (role, lines) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = `message message--${role}`;
+
+          const bubble = document.createElement('div');
+          bubble.className = 'message__bubble';
+
+          const payload = Array.isArray(lines) ? lines : [lines];
+          payload.forEach((line) => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = line;
+            bubble.appendChild(paragraph);
+          });
+
+          wrapper.appendChild(bubble);
+          chatLog.appendChild(wrapper);
+          chatLog.scrollTop = chatLog.scrollHeight;
+        };
+
+        const handleQuestion = (event) => {
+          const button = event.currentTarget;
+          const key = button.getAttribute('data-question');
+          if (!key || !responses[key]) {
+            return;
+          }
+
+          addMessage('user', button.textContent.trim());
+          button.disabled = true;
+          setTimeout(() => {
+            addMessage('ai', responses[key]);
+            button.disabled = false;
+            button.focus();
+          }, 350);
+        };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', handleQuestion);
+        });
+
+        addMessage('ai', [
+          "Hey there! I'm Ian.",
+          "Choose a suggested question to learn more."
+        ]);
+
+        const triggerBreak = () => {
+          if (
+            !chatShell ||
+            !shardsContainer ||
+            chatShell.classList.contains('chat-shell--breaking') ||
+            chatShell.classList.contains('chat-shell--sleep')
+          ) {
+            return;
+          }
+
+          shardsContainer.innerHTML = '';
+          for (let i = 0; i < 100; i += 1) {
+            const shard = document.createElement('div');
+            shard.className = 'chat-shell__shard';
+            const tx = `${(Math.random() - 0.5) * 50}vw`;
+            const ty = `${90 + Math.random() * 80}vh`;
+            const rot = `${(Math.random() - 0.5) * 50}deg`;
+            shard.style.setProperty('--tx', tx);
+            shard.style.setProperty('--ty', ty);
+            shard.style.setProperty('--rot', rot);
+            shard.style.setProperty('--dur', `${1.2 + Math.random() * 0.8}s`);
+            shard.style.animationDelay = `${Math.random() * 0.25}s`;
+            shardsContainer.appendChild(shard);
+          }
+
+          chatShell.classList.add('chat-shell--breaking');
+
+          setTimeout(() => {
+            chatShell.classList.add('chat-shell--sleep');
+          }, 600);
+
+          if (breakTimeout) {
+            clearTimeout(breakTimeout);
+          }
+
+          breakTimeout = setTimeout(() => {
+            chatShell.classList.remove('chat-shell--breaking', 'chat-shell--sleep');
+            shardsContainer.innerHTML = '';
+          }, 10000);
+        };
+
+        if (hashtag) {
+          hashtag.addEventListener('click', triggerBreak);
+        }
+
+        const cursorFollower = document.querySelector('.cursor-follower');
+        if (cursorFollower && window.matchMedia('(pointer: fine)').matches) {
+          let targetX = window.innerWidth / 2;
+          let targetY = window.innerHeight / 2;
+          let currentX = targetX;
+          let currentY = targetY;
+          const halfSize = cursorFollower.offsetWidth / 2;
+
+          const animateFollower = () => {
+            currentX += (targetX - currentX) * 0.2;
+            currentY += (targetY - currentY) * 0.2;
+            cursorFollower.style.transform = `translate3d(${currentX - halfSize}px, ${currentY - halfSize}px, 0)`;
+            requestAnimationFrame(animateFollower);
+          };
+
+          const showFollower = () => cursorFollower.classList.add('cursor-follower--visible');
+          const hideFollower = () => cursorFollower.classList.remove('cursor-follower--visible');
+
+          window.addEventListener('pointermove', (event) => {
+            targetX = event.clientX;
+            targetY = event.clientY;
+            showFollower();
+          });
+          window.addEventListener('pointerleave', hideFollower);
+          window.addEventListener('blur', hideFollower);
+
+          animateFollower();
+        } else if (cursorFollower) {
+          cursorFollower.remove();
+        }
+      })();
+    </script>
   </body>
 </html>
