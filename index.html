@@ -5,8 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ian Relecker</title>
+    <meta name="description" content="Ian Relecker — computer person. Security-minded builder working on AI, cloud, and resilient systems. Connect via the links below.">
+    <meta name="author" content="Ian Relecker">
+    <meta name="theme-color" content="#000308">
+    <meta name="color-scheme" content="dark">
+    <!-- Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ian Relecker">
+    <meta property="og:description" content="Computer person. Security-minded builder working on AI, cloud, and resilient systems.">
+    <meta property="og:image" content="https://relecker.com/headshot.jpeg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ian Relecker">
+    <meta name="twitter:description" content="Computer person. Security-minded builder working on AI, cloud, and resilient systems.">
     <!-- Favicon -->
-    <link rel="icon" href="headshot.jpeg" type="image/x-icon" />
+    <link rel="icon" href="headshot.jpeg" type="image/jpeg" />
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Core theme CSS -->
@@ -20,7 +32,6 @@
     <section class="animated-background" aria-hidden="true">
       <div id="stars1"></div>
       <div id="stars2"></div>
-      <div id="stars3"></div>
       <div class="arena-floor"></div>
     </section>
     <!-- End of Parallax Pixel Background Animation -->
@@ -109,6 +120,7 @@
         const chatShell = document.getElementById('chatShell');
         const shardsContainer = document.querySelector('.chat-shell__shards');
         let breakTimeout = null;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const responses = {
           work: [
@@ -155,22 +167,45 @@
           wrapper.appendChild(bubble);
           chatLog.appendChild(wrapper);
           chatLog.scrollTop = chatLog.scrollHeight;
+          return wrapper;
+        };
+
+        const addTyping = () => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'message message--ai message--typing';
+          wrapper.setAttribute('aria-hidden', 'true');
+          wrapper.innerHTML = '<div class="message__bubble typing"><span></span><span></span><span></span></div>';
+          chatLog.appendChild(wrapper);
+          chatLog.scrollTop = chatLog.scrollHeight;
+          return wrapper;
         };
 
         const handleQuestion = (event) => {
           const button = event.currentTarget;
           const key = button.getAttribute('data-question');
-          if (!key || !responses[key]) {
+          if (!key || !responses[key] || button.disabled) {
             return;
           }
 
           addMessage('user', button.textContent.trim());
           button.disabled = true;
-          setTimeout(() => {
+
+          const reveal = () => {
             addMessage('ai', responses[key]);
             button.disabled = false;
+          };
+
+          if (reduceMotion) {
+            reveal();
+            return;
+          }
+
+          const typing = addTyping();
+          setTimeout(() => {
+            typing.remove();
+            reveal();
             button.focus();
-          }, 350);
+          }, 650);
         };
 
         buttons.forEach((button) => {
@@ -183,6 +218,10 @@
         ]);
 
         const triggerBreak = () => {
+          if (reduceMotion) {
+            return;
+          }
+
           if (
             !chatShell ||
             !shardsContainer ||
