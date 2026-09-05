@@ -1,263 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script><script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script><script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('4f2be71005df1ea1dc7314e139aa25ac', {"autocapture":{"elementInteractions":true}});</script>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian Relecker</title>
-    <!-- Favicon -->
-    <link rel="icon" href="headshot.jpeg" type="image/x-icon" />
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <!-- Core theme CSS -->
-    <link rel="stylesheet" href="style.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ian Relecker</title>
+  <meta name="description" content="Ian Relecker — systems, security, and the tools I wish existed. Endpoint fleets, incident response, and on-device software from Los Angeles.">
+  <meta name="theme-color" content="#08090b">
+  <meta property="og:title" content="Ian Relecker">
+  <meta property="og:description" content="Systems, security, and the tools I wish existed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://relecker.com/">
+  <meta property="og:image" content="https://relecker.com/headshot.jpeg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ian Relecker">
+  <meta name="twitter:description" content="Systems, security, and the tools I wish existed.">
+  <link rel="canonical" href="https://relecker.com/">
+  <link rel="icon" href="headshot.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+  <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+  <script>
+    window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+    window.amplitude.init('4f2be71005df1ea1dc7314e139aa25ac', {autocapture: {elementInteractions: true}});
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GWZNLFGC4W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GWZNLFGC4W');
+  </script>
+</head>
 <!--
   @relecker.01 on Signal
--->  
-  <body>
-    <!-- Parallax Pixel Background Animation -->
-    <section class="animated-background" aria-hidden="true">
-      <div id="stars1"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-      <div class="arena-floor"></div>
-    </section>
-    <!-- End of Parallax Pixel Background Animation -->
+-->
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="cursor-follower" aria-hidden="true"></div>
 
-    <div class="cursor-follower" aria-hidden="true"></div>
-    
-    
-    <main class="chat-shell" id="chatShell">
-      <div class="chat-shell__shards" aria-hidden="true"></div>
-      <header class="chat-profile">
-        <a id="profilePicture" href="https://relecker.com" target="_blank">
-          <img src="headshot.jpeg" alt="Profile Picture">
-        </a>
-        <div class="profile-copy">
-          <h1 class="profile-name">Ian Relecker</h1>
-          <p class="profile-tagline">computer person</p>
+  <header class="site-nav">
+    <a class="mark" href="/">Ian Relecker</a>
+    <nav aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#ask">Ask</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="kicker">computer person · los angeles</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>
+            <span>Ian</span>
+            <span>Relecker</span>
+          </h1>
+          <p class="lede">I keep systems honest and build the tools I wish existed — endpoint fleets, security operations, and software that stays on-device.</p>
+          <ul class="facts">
+            <li>M.S. Information Technology, cybersecurity</li>
+            <li>B.S. Computer Science</li>
+            <li>Azure Solutions Architect Expert</li>
+          </ul>
         </div>
-      </header>
+        <figure class="portrait">
+          <img src="headshot.jpeg" alt="Portrait of Ian Relecker">
+          <figcaption>Building, breaking, and putting it back together.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-      <div class="chat-body">
-        <aside class="links-panel" aria-label="Quick links">
-          <h2>Quick Links</h2>
-          <div id="links">
-            <a class="link" href="https://dioxideai.com" target="_blank">
-              <i class="fas fa-server">&nbsp;</i>Dioxide AI Chatbot
-            </a>
-            <a class="link" href="https://www.linkedin.com/in/ian-relecker/" target="_blank">
-              <i class="fab fa-linkedin">&nbsp;</i>Linkedin
-            </a>
-            <a class="link" rel="me" href="https://github.com/ianrelecker" target="_blank">
-              <i class="fab fa-github">&nbsp;</i>Github
-            </a>
-            <a class="link" rel="me" href="https://x.com/ianrelecker" target="_blank">
-              <span class="icon-x" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M18.244 2h2.956l-6.457 7.373L22 22h-6.095l-4.265-5.579L6.844 22H3.888l6.906-7.895L2 2h6.274l3.852 5.107L18.244 2zm-1.04 18h1.638L8.872 4h-1.64l10.973 16z"/>
-                </svg>
-              </span>
-              X Account
-            </a>
-            <a class="link" href="pgpkeys.html" target="_blank">
-              <i class="fas fa-key">&nbsp;</i>PGP Keys
-            </a>
-          </div>
-        </aside>
+    <section id="work" class="work">
+      <div class="section-head">
+        <p class="kicker">selected work</p>
+        <h2>Things in the world</h2>
+      </div>
+      <div class="work-grid">
+        <a class="card" href="https://dioxideai.com" target="_blank" rel="noopener">
+          <span class="card-index">01</span>
+          <h3>Dioxide AI</h3>
+          <p>A local LLM chat interface with web results when you need them. Built so context stays put and regulated teams can actually use the model.</p>
+          <span class="card-go">dioxideai.com</span>
+        </a>
+        <a class="card" href="/fieldmark/">
+          <span class="card-index">02</span>
+          <h3>FieldMark</h3>
+          <p>On-device iOS field log. Photograph issues, mark them up, and share a PDF — no accounts, no FieldMark backend, no telemetry.</p>
+          <span class="card-go">relecker.com/fieldmark</span>
+        </a>
+        <article class="card card--static">
+          <span class="card-index">03</span>
+          <h3>Endpoint systems</h3>
+          <p>Intune, Jamf, RMM, and EDR across roughly twenty client environments. Patching, compliance, and first response when an endpoint gets weird.</p>
+          <span class="card-go">practice</span>
+        </article>
+        <a class="card" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
+          <span class="card-index">04</span>
+          <h3>Open source</h3>
+          <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and a pile of other tools I needed enough to write.</p>
+          <span class="card-go">github.com/ianrelecker</span>
+        </a>
+      </div>
+    </section>
 
-        <section class="chat-window" aria-label="Conversation with Ian's AI concierge">
-          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+    <section id="ask" class="ask">
+      <div class="section-head">
+        <p class="kicker">ask ian</p>
+        <h2>A short conversation</h2>
+      </div>
+      <div class="chat-shell" id="chatShell">
+        <div class="chat-shell__shards" aria-hidden="true"></div>
+        <div class="chat-layout">
           <div class="question-panel" aria-label="Suggested questions">
-            <div class="question-panel__box">
-              <p class="question-panel__title">Pick a question to ask</p>
-              <div class="question-buttons">
-                <button class="question-button" type="button" data-question="work">
-                  What are you building right now?
-                </button>
-                <button class="question-button" type="button" data-question="background">
-                  What's your background?
-                </button>
-                <button class="question-button" type="button" data-question="expertise">
-                  Where do you add the most value?
-                </button>
-                <button class="question-button" type="button" data-question="security">
-                  How do you think about security?
-                </button>
-                <button class="question-button" type="button" data-question="learning">
-                  What's on your learning roadmap right now?
-                </button>
-                <button class="question-button" type="button" data-question="contact">
-                  How can I connect with you?
-                </button>
-              </div>
+            <p class="question-panel__title">Pick a question</p>
+            <div class="question-buttons">
+              <button class="question-button" type="button" data-question="work">What are you building right now?</button>
+              <button class="question-button" type="button" data-question="background">What's your background?</button>
+              <button class="question-button" type="button" data-question="expertise">Where do you add the most value?</button>
+              <button class="question-button" type="button" data-question="security">How do you think about security?</button>
+              <button class="question-button" type="button" data-question="learning">What's on your learning roadmap?</button>
+              <button class="question-button" type="button" data-question="contact">How can I connect with you?</button>
             </div>
           </div>
-        </section>
+          <div class="chat-window" aria-label="Conversation with Ian">
+            <div id="chatLog" class="chat-log" aria-live="polite"></div>
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
 
-    <div id="hashtag">
-      Stay curious.
-    </div>
-    <script>
-      (function () {
-        const chatLog = document.getElementById('chatLog');
-        const buttons = document.querySelectorAll('[data-question]');
-        const hashtag = document.getElementById('hashtag');
-        const chatShell = document.getElementById('chatShell');
-        const shardsContainer = document.querySelector('.chat-shell__shards');
-        let breakTimeout = null;
+    <section id="connect" class="connect">
+      <div class="section-head">
+        <p class="kicker">connect</p>
+        <h2>Find me</h2>
+      </div>
+      <ul class="connect-list">
+        <li>
+          <a href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
+            <span class="connect-name">GitHub</span>
+            <span class="connect-meta">code and notes</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/ian-relecker/" target="_blank" rel="noopener">
+            <span class="connect-name">LinkedIn</span>
+            <span class="connect-meta">the professional version</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/ianrelecker" target="_blank" rel="me noopener">
+            <span class="connect-name">X</span>
+            <span class="connect-meta">@ianrelecker</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://dioxideai.com" target="_blank" rel="noopener">
+            <span class="connect-name">Dioxide AI</span>
+            <span class="connect-meta">the chatbot</span>
+          </a>
+        </li>
+        <li>
+          <a href="pgpkeys.html">
+            <span class="connect-name">PGP keys</span>
+            <span class="connect-meta">for the careful ones</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
 
-        const responses = {
-          work: [
-            "I'm iterating on Dioxide AI — a secure chatbot interface that helps regulated teams bring AI to their workflows without leaking context.",
-            "It blends my security background with product intuition so orgs can move fast while keeping sensitive data guarded."
-          ],
-          background: [
-            "I earned an M.S. in Information Technology (Cybersecurity concentration) and a B.S. in Computer Science.",
-            "That blend of formal training and hands-on building keeps me grounded in both theory and execution.",
-            "Right now I partner with teams as an IT / Cybersecurity consultant, translating security principles into pragmatic roadmaps."
-          ],
-          expertise: [
-            "I help teams ship AI-enabled products with secure-by-design architecture, tight feedback loops, and measurable reliability.",
-            "Threat modeling, incident response planning, and AI guardrail design are where I get most excited."
-          ],
-          security: [
-            "Security is a culture, not a checklist. I focus on reducing blast radius, instrumenting everything, and keeping humans in the loop.",
-            "When AI is involved, I double down on auditability and privacy so models become force multipliers instead of liabilities."
-          ],
-          learning: [
-            "I'm deep-diving into Kubernetes internals so I can reason about schedulers, networking, and policy as-code without relying on black boxes.",
-            "In parallel, I'm automating cloud infra pipelines so spinning up hardened, audit-ready environments takes minutes instead of days."
-          ],
-          contact: [
-            "Tap any of the quick links below to reach me on your preferred platform.",
-            "For sensitive conversations, grab my PGP key from the link on the left or message me on Signal (@relecker.01)."
-          ]
-        };
+  <footer class="site-foot">
+    <button id="hashtag" type="button">Stay curious.</button>
+    <p class="foot-note">© <span id="year">2026</span> Ian Relecker</p>
+  </footer>
 
-        const addMessage = (role, lines) => {
-          const wrapper = document.createElement('div');
-          wrapper.className = `message message--${role}`;
+  <script>
+    (function () {
+      const year = document.getElementById('year');
+      if (year) year.textContent = String(new Date().getFullYear());
 
-          const bubble = document.createElement('div');
-          bubble.className = 'message__bubble';
+      const chatLog = document.getElementById('chatLog');
+      const buttons = document.querySelectorAll('[data-question]');
+      const hashtag = document.getElementById('hashtag');
+      const chatShell = document.getElementById('chatShell');
+      const shardsContainer = document.querySelector('.chat-shell__shards');
+      let breakTimeout = null;
+      let busy = false;
 
+      const responses = {
+        work: [
+          "FieldMark — an on-device iOS field log for photographing issues, marking them up, and sharing a PDF.",
+          "Dioxide AI is still in motion: a local chatbot so teams can use models without leaking context.",
+          "And a lot of unglamorous fleet work: Intune, Jamf, EDR, and the glue that keeps twenty environments honest."
+        ],
+        background: [
+          "M.S. in Information Technology with a cybersecurity concentration, B.S. in Computer Science — both from Cal Lutheran.",
+          "I spent years repairing machines at volume, then ran city IT in Malibu, and now I administer endpoint fleets as a consultant.",
+          "The through-line is the same: make the system boringly reliable, then automate the parts that aren't."
+        ],
+        expertise: [
+          "Endpoint engineering at scale — Intune, Autopilot, Jamf, RMM, and the PowerShell that makes it repeatable.",
+          "Security operations when something actually happens: EDR escalations, identity compromise, containing a web shell.",
+          "And shipping small, sharp tools — on-device software, Graph automation, AI interfaces with the blast radius designed in."
+        ],
+        security: [
+          "Security is a culture, not a checklist. Reduce blast radius, instrument everything, keep humans in the loop.",
+          "When AI is involved I want auditability and privacy so the model is a force multiplier, not a liability.",
+          "Most of the real work is baselines, evidence, and making the secure path the easy path."
+        ],
+        learning: [
+          "Kubernetes internals — schedulers, networking, and policy as code without treating the cluster as a black box.",
+          "Hardened cloud pipelines so standing up an audit-ready environment takes minutes, not a week of clicking.",
+          "And whatever the next on-device product needs. Stay curious is not a slogan."
+        ],
+        contact: [
+          "GitHub, LinkedIn, and X are in Connect below. Dioxide AI if you want to see the chatbot.",
+          "For careful conversations, grab a PGP key — or Signal, @relecker.01."
+        ]
+      };
+
+        const addMessage = (role, lines, typing) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = `message message--${role}${typing ? ' message--typing' : ''}`;
+        const who = document.createElement('span');
+        who.className = 'message__who';
+        who.textContent = role === 'user' ? 'You' : 'Ian';
+        const bubble = document.createElement('div');
+        bubble.className = 'message__bubble';
+        if (typing) {
+          bubble.innerHTML = '<span></span><span></span><span></span>';
+        } else {
           const payload = Array.isArray(lines) ? lines : [lines];
           payload.forEach((line) => {
             const paragraph = document.createElement('p');
             paragraph.textContent = line;
             bubble.appendChild(paragraph);
           });
+        }
+        wrapper.appendChild(who);
+        wrapper.appendChild(bubble);
+        chatLog.appendChild(wrapper);
+        chatLog.scrollTop = chatLog.scrollHeight;
+        return wrapper;
+      };
 
-          wrapper.appendChild(bubble);
-          chatLog.appendChild(wrapper);
-          chatLog.scrollTop = chatLog.scrollHeight;
-        };
+      const handleQuestion = (event) => {
+        const button = event.currentTarget;
+        const key = button.getAttribute('data-question');
+        if (!key || !responses[key] || busy) return;
 
-        const handleQuestion = (event) => {
-          const button = event.currentTarget;
-          const key = button.getAttribute('data-question');
-          if (!key || !responses[key]) {
-            return;
-          }
+        busy = true;
+        buttons.forEach((b) => { b.disabled = true; });
+        addMessage('user', button.textContent.trim());
+        const typing = addMessage('ai', [], true);
 
-          addMessage('user', button.textContent.trim());
-          button.disabled = true;
-          setTimeout(() => {
-            addMessage('ai', responses[key]);
-            button.disabled = false;
-            button.focus();
-          }, 350);
-        };
+        window.setTimeout(() => {
+          typing.remove();
+          addMessage('ai', responses[key]);
+          busy = false;
+          buttons.forEach((b) => { b.disabled = false; });
+          button.classList.add('question-button--asked');
+          button.focus();
+        }, 420);
+      };
 
-        buttons.forEach((button) => {
-          button.addEventListener('click', handleQuestion);
-        });
+      buttons.forEach((button) => button.addEventListener('click', handleQuestion));
 
-        addMessage('ai', [
-          "Hey there! I'm Ian.",
-          "Choose a suggested question to learn more."
-        ]);
+      addMessage('ai', [
+        "Hey — I'm Ian.",
+        "Pick a question. I'll keep it short."
+      ]);
 
-        const triggerBreak = () => {
-          if (
-            !chatShell ||
-            !shardsContainer ||
-            chatShell.classList.contains('chat-shell--breaking') ||
-            chatShell.classList.contains('chat-shell--sleep')
-          ) {
-            return;
-          }
+      const triggerBreak = () => {
+        if (
+          !chatShell ||
+          !shardsContainer ||
+          chatShell.classList.contains('chat-shell--breaking') ||
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+          return;
+        }
 
+        shardsContainer.innerHTML = '';
+        for (let i = 0; i < 80; i += 1) {
+          const shard = document.createElement('div');
+          shard.className = 'chat-shell__shard';
+          shard.style.setProperty('--tx', `${(Math.random() - 0.5) * 50}vw`);
+          shard.style.setProperty('--ty', `${90 + Math.random() * 80}vh`);
+          shard.style.setProperty('--rot', `${(Math.random() - 0.5) * 50}deg`);
+          shard.style.setProperty('--dur', `${1.2 + Math.random() * 0.8}s`);
+          shard.style.animationDelay = `${Math.random() * 0.25}s`;
+          shardsContainer.appendChild(shard);
+        }
+
+        chatShell.classList.add('chat-shell--breaking');
+        window.setTimeout(() => chatShell.classList.add('chat-shell--sleep'), 500);
+
+        if (breakTimeout) window.clearTimeout(breakTimeout);
+        breakTimeout = window.setTimeout(() => {
+          chatShell.classList.remove('chat-shell--breaking', 'chat-shell--sleep');
           shardsContainer.innerHTML = '';
-          for (let i = 0; i < 100; i += 1) {
-            const shard = document.createElement('div');
-            shard.className = 'chat-shell__shard';
-            const tx = `${(Math.random() - 0.5) * 50}vw`;
-            const ty = `${90 + Math.random() * 80}vh`;
-            const rot = `${(Math.random() - 0.5) * 50}deg`;
-            shard.style.setProperty('--tx', tx);
-            shard.style.setProperty('--ty', ty);
-            shard.style.setProperty('--rot', rot);
-            shard.style.setProperty('--dur', `${1.2 + Math.random() * 0.8}s`);
-            shard.style.animationDelay = `${Math.random() * 0.25}s`;
-            shardsContainer.appendChild(shard);
-          }
+        }, 8000);
+      };
 
-          chatShell.classList.add('chat-shell--breaking');
+      if (hashtag) hashtag.addEventListener('click', triggerBreak);
 
-          setTimeout(() => {
-            chatShell.classList.add('chat-shell--sleep');
-          }, 600);
+      const cursorFollower = document.querySelector('.cursor-follower');
+      if (cursorFollower && window.matchMedia('(pointer: fine)').matches) {
+        let targetX = window.innerWidth / 2;
+        let targetY = window.innerHeight / 2;
+        let currentX = targetX;
+        let currentY = targetY;
+        const half = 14;
 
-          if (breakTimeout) {
-            clearTimeout(breakTimeout);
-          }
-
-          breakTimeout = setTimeout(() => {
-            chatShell.classList.remove('chat-shell--breaking', 'chat-shell--sleep');
-            shardsContainer.innerHTML = '';
-          }, 10000);
+        const animateFollower = () => {
+          currentX += (targetX - currentX) * 0.18;
+          currentY += (targetY - currentY) * 0.18;
+          cursorFollower.style.transform = `translate3d(${currentX - half}px, ${currentY - half}px, 0)`;
+          requestAnimationFrame(animateFollower);
         };
 
-        if (hashtag) {
-          hashtag.addEventListener('click', triggerBreak);
-        }
-
-        const cursorFollower = document.querySelector('.cursor-follower');
-        if (cursorFollower && window.matchMedia('(pointer: fine)').matches) {
-          let targetX = window.innerWidth / 2;
-          let targetY = window.innerHeight / 2;
-          let currentX = targetX;
-          let currentY = targetY;
-          const halfSize = cursorFollower.offsetWidth / 2;
-
-          const animateFollower = () => {
-            currentX += (targetX - currentX) * 0.2;
-            currentY += (targetY - currentY) * 0.2;
-            cursorFollower.style.transform = `translate3d(${currentX - halfSize}px, ${currentY - halfSize}px, 0)`;
-            requestAnimationFrame(animateFollower);
-          };
-
-          const showFollower = () => cursorFollower.classList.add('cursor-follower--visible');
-          const hideFollower = () => cursorFollower.classList.remove('cursor-follower--visible');
-
-          window.addEventListener('pointermove', (event) => {
-            targetX = event.clientX;
-            targetY = event.clientY;
-            showFollower();
-          });
-          window.addEventListener('pointerleave', hideFollower);
-          window.addEventListener('blur', hideFollower);
-
-          animateFollower();
-        } else if (cursorFollower) {
-          cursorFollower.remove();
-        }
-      })();
-    </script>
-  </body>
+        window.addEventListener('pointermove', (event) => {
+          targetX = event.clientX;
+          targetY = event.clientY;
+          cursorFollower.classList.add('cursor-follower--visible');
+        });
+        window.addEventListener('pointerleave', () => cursorFollower.classList.remove('cursor-follower--visible'));
+        window.addEventListener('blur', () => cursorFollower.classList.remove('cursor-follower--visible'));
+        animateFollower();
+      } else if (cursorFollower) {
+        cursorFollower.remove();
+      }
+    })();
+  </script>
+</body>
 </html>
