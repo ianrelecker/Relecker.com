@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ian Relecker</title>
   <meta name="description" content="Ian Relecker — systems, security, and the tools I wish existed. Endpoint fleets, incident response, and on-device software from Los Angeles.">
-  <meta name="theme-color" content="#08090b">
+  <meta name="theme-color" content="#0b0a09">
   <meta property="og:title" content="Ian Relecker">
   <meta property="og:description" content="Systems, security, and the tools I wish existed.">
   <meta property="og:type" content="website">
@@ -40,20 +40,19 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="atmosphere" aria-hidden="true">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
+    <div class="wash"></div>
     <div class="grain"></div>
   </div>
-  <div class="cursor-follower" aria-hidden="true"></div>
 
   <header class="site-nav">
-    <a class="mark" href="/">Ian Relecker</a>
-    <nav aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="#ask">Ask</a>
-      <a href="#connect">Connect</a>
-    </nav>
+    <div class="nav-inner">
+      <a class="mark" href="/">Ian Relecker</a>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#ask">Ask</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
@@ -66,15 +65,16 @@
             <span>Relecker</span>
           </h1>
           <p class="lede">I keep systems honest and build the tools I wish existed — endpoint fleets, security operations, and software that stays on-device.</p>
+          <p class="now">Now: FieldMark, twenty fleets, and the unglamorous glue.</p>
           <ul class="facts">
-            <li>M.S. Information Technology, cybersecurity</li>
+            <li>M.S. IT, cybersecurity</li>
             <li>B.S. Computer Science</li>
             <li>Azure Solutions Architect Expert</li>
           </ul>
         </div>
         <figure class="portrait">
           <img src="headshot.jpeg" alt="Portrait of Ian Relecker">
-          <figcaption>Building, breaking, and putting it back together.</figcaption>
+          <figcaption>Building, breaking, putting it back together.</figcaption>
         </figure>
       </div>
     </section>
@@ -82,32 +82,40 @@
     <section id="work" class="work">
       <div class="section-head">
         <p class="kicker">selected work</p>
-        <h2>Things in the world</h2>
+        <h2>In the world</h2>
       </div>
-      <div class="work-grid">
-        <a class="card" href="https://dioxideai.com" target="_blank" rel="noopener">
-          <span class="card-index">01</span>
-          <h3>Dioxide AI</h3>
-          <p>A local LLM chat interface with web results when you need them. Built so context stays put and regulated teams can actually use the model.</p>
-          <span class="card-go">dioxideai.com</span>
+      <div class="work-index">
+        <a class="work-row" href="https://dioxideai.com" target="_blank" rel="noopener">
+          <span class="work-num">01</span>
+          <div class="work-body">
+            <h3>Dioxide AI</h3>
+            <p>Local LLM chat with web results when you need them. Context stays put so regulated teams can actually use the model.</p>
+          </div>
+          <span class="work-go">dioxideai.com</span>
         </a>
-        <a class="card" href="/fieldmark/">
-          <span class="card-index">02</span>
-          <h3>FieldMark</h3>
-          <p>On-device iOS field log. Photograph issues, mark them up, and share a PDF — no accounts, no FieldMark backend, no telemetry.</p>
-          <span class="card-go">relecker.com/fieldmark</span>
+        <a class="work-row" href="/fieldmark/">
+          <span class="work-num">02</span>
+          <div class="work-body">
+            <h3>FieldMark</h3>
+            <p>On-device iOS field log. Photograph issues, mark them up, share a PDF. No accounts, no backend, no telemetry.</p>
+          </div>
+          <span class="work-go">relecker.com/fieldmark</span>
         </a>
-        <article class="card card--static">
-          <span class="card-index">03</span>
-          <h3>Endpoint systems</h3>
-          <p>Intune, Jamf, RMM, and EDR across roughly twenty client environments. Patching, compliance, and first response when an endpoint gets weird.</p>
-          <span class="card-go">practice</span>
+        <article class="work-row work-row--static">
+          <span class="work-num">03</span>
+          <div class="work-body">
+            <h3>Endpoint systems</h3>
+            <p>Intune, Jamf, RMM, and EDR across roughly twenty client environments. Patching, compliance, first response when an endpoint gets weird.</p>
+          </div>
+          <span class="work-go">practice</span>
         </article>
-        <a class="card" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
-          <span class="card-index">04</span>
-          <h3>Open source</h3>
-          <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and a pile of other tools I needed enough to write.</p>
-          <span class="card-go">github.com/ianrelecker</span>
+        <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
+          <span class="work-num">04</span>
+          <div class="work-body">
+            <h3>Open source</h3>
+            <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
+          </div>
+          <span class="work-go">github.com/ianrelecker</span>
         </a>
       </div>
     </section>
@@ -121,14 +129,32 @@
         <div class="chat-shell__shards" aria-hidden="true"></div>
         <div class="chat-layout">
           <div class="question-panel" aria-label="Suggested questions">
-            <p class="question-panel__title">Pick a question</p>
+            <p class="question-panel__title">Questions</p>
             <div class="question-buttons">
-              <button class="question-button" type="button" data-question="work">What are you building right now?</button>
-              <button class="question-button" type="button" data-question="background">What's your background?</button>
-              <button class="question-button" type="button" data-question="expertise">Where do you add the most value?</button>
-              <button class="question-button" type="button" data-question="security">How do you think about security?</button>
-              <button class="question-button" type="button" data-question="learning">What's on your learning roadmap?</button>
-              <button class="question-button" type="button" data-question="contact">How can I connect with you?</button>
+              <button class="question-button" type="button" data-question="work">
+                <span class="q-num">01</span>
+                <span class="q-text">What are you building right now?</span>
+              </button>
+              <button class="question-button" type="button" data-question="background">
+                <span class="q-num">02</span>
+                <span class="q-text">What's your background?</span>
+              </button>
+              <button class="question-button" type="button" data-question="expertise">
+                <span class="q-num">03</span>
+                <span class="q-text">Where do you add the most value?</span>
+              </button>
+              <button class="question-button" type="button" data-question="security">
+                <span class="q-num">04</span>
+                <span class="q-text">How do you think about security?</span>
+              </button>
+              <button class="question-button" type="button" data-question="learning">
+                <span class="q-num">05</span>
+                <span class="q-text">What's on your learning roadmap?</span>
+              </button>
+              <button class="question-button" type="button" data-question="contact">
+                <span class="q-num">06</span>
+                <span class="q-text">How can I connect with you?</span>
+              </button>
             </div>
           </div>
           <div class="chat-window" aria-label="Conversation with Ian">
@@ -228,7 +254,7 @@
         ]
       };
 
-        const addMessage = (role, lines, typing) => {
+      const addMessage = (role, lines, typing) => {
         const wrapper = document.createElement('div');
         wrapper.className = `message message--${role}${typing ? ' message--typing' : ''}`;
         const who = document.createElement('span');
@@ -257,10 +283,12 @@
         const button = event.currentTarget;
         const key = button.getAttribute('data-question');
         if (!key || !responses[key] || busy) return;
+        const label = button.querySelector('.q-text');
+        const text = (label ? label.textContent : button.textContent).trim();
 
         busy = true;
         buttons.forEach((b) => { b.disabled = true; });
-        addMessage('user', button.textContent.trim());
+        addMessage('user', text);
         const typing = addMessage('ai', [], true);
 
         window.setTimeout(() => {
@@ -313,33 +341,6 @@
       };
 
       if (hashtag) hashtag.addEventListener('click', triggerBreak);
-
-      const cursorFollower = document.querySelector('.cursor-follower');
-      if (cursorFollower && window.matchMedia('(pointer: fine)').matches) {
-        let targetX = window.innerWidth / 2;
-        let targetY = window.innerHeight / 2;
-        let currentX = targetX;
-        let currentY = targetY;
-        const half = 14;
-
-        const animateFollower = () => {
-          currentX += (targetX - currentX) * 0.18;
-          currentY += (targetY - currentY) * 0.18;
-          cursorFollower.style.transform = `translate3d(${currentX - half}px, ${currentY - half}px, 0)`;
-          requestAnimationFrame(animateFollower);
-        };
-
-        window.addEventListener('pointermove', (event) => {
-          targetX = event.clientX;
-          targetY = event.clientY;
-          cursorFollower.classList.add('cursor-follower--visible');
-        });
-        window.addEventListener('pointerleave', () => cursorFollower.classList.remove('cursor-follower--visible'));
-        window.addEventListener('blur', () => cursorFollower.classList.remove('cursor-follower--visible'));
-        animateFollower();
-      } else if (cursorFollower) {
-        cursorFollower.remove();
-      }
     })();
   </script>
 </body>
