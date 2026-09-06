@@ -10,16 +10,20 @@
   <meta property="og:description" content="Systems, security, and the tools I wish existed.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://relecker.com/">
-  <meta property="og:image" content="https://relecker.com/headshot.jpeg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://relecker.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ian Relecker">
   <meta name="twitter:description" content="Systems, security, and the tools I wish existed.">
+  <meta name="twitter:image" content="https://relecker.com/og.png">
   <link rel="canonical" href="https://relecker.com/">
   <link rel="alternate" type="text/plain" title="LLM brief" href="https://relecker.com/llms.txt">
-  <link rel="icon" href="headshot.jpeg" type="image/jpeg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
   <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
@@ -30,19 +34,30 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "ProfilePage",
     "name": "Ian Relecker",
     "url": "https://relecker.com/",
-    "image": "https://relecker.com/headshot.jpeg",
-    "jobTitle": "Systems administrator",
-    "description": "Systems, security, and on-device software. Endpoint fleets, incident response, and tools that keep data on the device.",
-    "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
-    "sameAs": [
-      "https://github.com/ianrelecker",
-      "https://www.linkedin.com/in/ian-relecker/",
-      "https://x.com/ianrelecker"
-    ],
-    "knowsAbout": ["endpoint management", "cybersecurity", "Intune", "Jamf", "incident response", "on-device software"]
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Ian Relecker",
+      "url": "https://relecker.com/",
+      "image": "https://relecker.com/headshot.jpeg",
+      "jobTitle": "Systems administrator",
+      "description": "Systems, security, and on-device software. Endpoint fleets, incident response, and tools that keep data on the device.",
+      "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+      "sameAs": [
+        "https://github.com/ianrelecker",
+        "https://www.linkedin.com/in/ian-relecker/",
+        "https://x.com/ianrelecker"
+      ],
+      "knowsAbout": ["endpoint management", "cybersecurity", "Intune", "Jamf", "incident response", "on-device software"],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "California Lutheran University" }
+      ],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Microsoft Azure Solutions Architect Expert" }
+      ]
+    }
   }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GWZNLFGC4W"></script>
@@ -58,6 +73,7 @@
 -->
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
   <div class="atmosphere" aria-hidden="true">
     <div class="wash"></div>
     <canvas id="dust" class="dust"></canvas>
@@ -69,7 +85,7 @@
       <a class="mark" href="/">Ian Relecker</a>
       <nav aria-label="Primary">
         <a href="#work">Work</a>
-        <a href="resume.html">Resume</a>
+        <a href="/resume">Resume</a>
         <a href="#ask">Ask</a>
         <a href="#connect">Connect</a>
       </nav>
@@ -88,7 +104,7 @@
           <p class="lede">I keep systems honest and build the tools I wish existed — endpoint fleets, security operations, and software that stays on-device.</p>
           <p class="now">Now: FieldMark, twenty fleets, and the unglamorous glue.</p>
           <div class="hero-actions">
-            <a class="btn" href="resume.html">Resume</a>
+            <a class="btn" href="/resume">Resume</a>
             <a class="btn btn--ghost" href="#ask">Ask Ian</a>
           </div>
           <ul class="facts">
@@ -196,7 +212,7 @@
       </div>
       <ul class="connect-list">
         <li>
-          <a href="resume.html">
+          <a href="/resume">
             <span class="connect-name">Resume</span>
             <span class="connect-meta">the long version</span>
           </a>
@@ -374,6 +390,6 @@
       if (hashtag) hashtag.addEventListener('click', triggerBreak);
     })();
   </script>
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

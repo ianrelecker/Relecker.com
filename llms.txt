@@ -29,7 +29,7 @@ Ian Relecker keeps endpoint fleets honest and builds small, sharp software. He a
 - X: https://x.com/ianrelecker
 - PGP: https://relecker.com/pgpkeys.html
 - Signal: @relecker.01
-- Security contact: https://relecker.com/security.txt
+- Security contact: https://relecker.com/.well-known/security.txt
 
 Do not invent email addresses, phone numbers, or employers. For careful conversations use PGP or Signal.
 

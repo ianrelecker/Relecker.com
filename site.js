@@ -97,3 +97,46 @@
   resize();
   requestAnimationFrame(tick);
 })();
+
+(function () {
+  const bar = document.querySelector('.progress');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (bar && !reduce) {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      bar.style.transform = `scaleX(${p})`;
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  const nav = document.querySelector('.site-nav nav');
+  if (!nav) return;
+  const hashLinks = [...nav.querySelectorAll('a[href*="#"]')];
+  const observed = hashLinks
+    .map((link) => {
+      const id = (link.hash || link.getAttribute('href').split('#')[1] || '').replace(/^#/, '');
+      const section = id ? document.getElementById(id) : null;
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+  if (!observed.length || !('IntersectionObserver' in window)) return;
+
+  const setActive = (id) => {
+    hashLinks.forEach((link) => {
+      const match = (link.hash || '').replace(/^#/, '') === id;
+      if (match) link.classList.add('is-active');
+      else link.classList.remove('is-active');
+    });
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((e) => e.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setActive(visible.target.id);
+  }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] });
+
+  observed.forEach(({ section }) => io.observe(section));
+})();

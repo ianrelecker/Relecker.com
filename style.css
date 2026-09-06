@@ -1,9 +1,47 @@
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("/fonts/fraunces-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("/fonts/outfit.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/plexmono-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/plexmono-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@view-transition { navigation: auto; }
+
 :root {
   --bg: #0b0a09;
   --bg-elev: #161310;
   --ink: #f4efe6;
   --muted: #a39a8c;
-  --faint: #6f685c;
+  --faint: #969086;
   --line: rgba(244, 239, 230, 0.11);
   --line-strong: rgba(244, 239, 230, 0.2);
   --accent: #e2a36a;
@@ -51,6 +89,20 @@ button, a, input { font: inherit; }
   border-radius: 8px;
 }
 .skip:focus { top: 16px; }
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 40;
+  pointer-events: none;
+  background: transparent;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background-color: var(--accent);
+}
 
 .atmosphere {
   position: fixed;
@@ -141,7 +193,9 @@ main,
 }
 
 .site-nav nav a:hover,
-.site-nav nav a:focus-visible { color: var(--ink); }
+.site-nav nav a:focus-visible,
+.site-nav nav a[aria-current="page"],
+.site-nav nav a.is-active { color: var(--ink); }
 
 main { padding-bottom: 88px; }
 
@@ -181,6 +235,24 @@ main { padding-bottom: 88px; }
 }
 
 .hero h1 span { display: block; }
+
+.hero .kicker,
+.hero h1 span,
+.hero .lede,
+.hero .now,
+.hero-actions,
+.hero .facts,
+.portrait {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero h1 span:nth-child(1) { animation-delay: 0.06s; }
+.hero h1 span:nth-child(2) { animation-delay: 0.12s; }
+.hero .lede { animation-delay: 0.2s; }
+.hero .now { animation-delay: 0.28s; }
+.hero-actions { animation-delay: 0.34s; }
+.hero .facts { animation-delay: 0.4s; }
+.portrait { animation-delay: 0.18s; }
 
 .lede {
   max-width: 36rem;
@@ -778,6 +850,11 @@ main { padding-bottom: 88px; }
   50% { opacity: 1; transform: translateY(-3px); }
 }
 
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (max-width: 860px) {
   .nav-inner, main, .site-foot, .resume { padding-left: 20px; padding-right: 20px; }
 
@@ -819,8 +896,19 @@ main { padding-bottom: 88px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .wash, .chat-shell__shard, .message--typing span { animation: none; }
+  .wash,
+  .chat-shell__shard,
+  .message--typing span,
+  .hero .kicker,
+  .hero h1 span,
+  .hero .lede,
+  .hero .now,
+  .hero-actions,
+  .hero .facts,
+  .portrait { animation: none; }
   .work-row, .connect-list a, .question-button, .btn { transition: none; }
+  .progress { display: none; }
+  @view-transition { navigation: none; }
 }
 
 @media print {
@@ -829,8 +917,21 @@ main { padding-bottom: 88px; }
   .site-foot,
   .back-link,
   .dust,
-  .hero-actions { display: none !important; }
-  body { background: #fff; color: #111; }
+  .hero-actions,
+  .progress,
+  .btn { display: none !important; }
+  html, body { background: #fff !important; color: #111 !important; }
+  .resume,
   .resume p,
-  .resume li { color: #222; }
+  .resume li,
+  .resume h1,
+  .resume h2,
+  .resume h3,
+  .resume .label,
+  .resume-contact,
+  .role-place,
+  .sub { color: #111 !important; }
+  .date { color: #444 !important; }
+  .role { border-color: #ccc !important; }
+  a { color: #111 !important; text-decoration: none; }
 }
