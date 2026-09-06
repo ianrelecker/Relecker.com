@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Ian Relecker</title>
+  <meta name="description" content="Resume for Ian Relecker — systems administrator, endpoint management, security operations, Los Angeles.">
+  <meta name="theme-color" content="#0b0a09">
+  <link rel="canonical" href="https://relecker.com/resume.html">
+  <link rel="icon" href="headshot.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="wash"></div>
+    <canvas id="dust" class="dust"></canvas>
+    <div class="grain"></div>
+  </div>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="mark" href="/">Ian Relecker</a>
+      <nav aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="resume.html" aria-current="page">Resume</a>
+        <a href="/#ask">Ask</a>
+        <a href="/#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="resume">
+    <a class="back-link" href="/">← Home</a>
+    <header class="resume-hero">
+      <p class="kicker">resume</p>
+      <h1>Ian Relecker</h1>
+      <p class="lede">Systems administrator. Endpoint fleets, security operations, and the glue that keeps twenty environments honest.</p>
+      <p class="resume-contact">
+        Los Angeles
+        · <a href="mailto:ianrelecker@gmail.com">ianrelecker@gmail.com</a>
+        · <a href="https://github.com/ianrelecker">github.com/ianrelecker</a>
+      </p>
+      <a class="btn" href="resume.pdf">Download PDF</a>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Systems administrator running Windows and macOS endpoint fleets at scale across roughly 20 client environments: Intune and Jamf administration, RMM-driven software distribution, patching, and compliance hardening against NIST and CIS baselines. Heavy PowerShell and Bash, including SYSTEM-context deployment scripting and direct Microsoft Graph API work. Also first responder on EDR-escalated endpoint intrusions, combining endpoint engineering with security operations.</p>
+    </section>
+
+    <section class="skills">
+      <h2>Technical skills</h2>
+      <p><span class="label">Endpoint management.</span> Intune (device configuration, compliance, app configuration and app protection policies, Autopilot, Windows Update rings), Jamf, Atera RMM, Group Policy, Windows 11 and Windows Server, macOS fleet management, silent MSI/EXE packaging, BitLocker.</p>
+      <p><span class="label">Scripting &amp; automation.</span> PowerShell (SYSTEM-context deployment, remediation, inventory), Microsoft Graph API, Python, Bash, Git/GitHub, Terraform, Docker, Kubernetes with ArgoCD.</p>
+      <p><span class="label">Identity &amp; cloud.</span> Entra ID, Conditional Access, hybrid and Entra join, Active Directory DS, Microsoft 365, Azure, Google Workspace and GCP.</p>
+      <p><span class="label">Security &amp; compliance.</span> EDR (Huntress, Microsoft Defender), incident response, vulnerability management, endpoint DLP, NIST SP 800-53/800-171, CIS benchmarks, DISA STIGs, ISO 27001, CMMC L2, HIPAA, PCI DSS.</p>
+      <p><span class="label">Servers &amp; networking.</span> Windows Server 2016/2019/2022, DNS, DHCP, IIS, Hyper-V, Azure Migrate, TCP/IP, VLANs, IPsec, Cisco Meraki, firewall and NSG administration.</p>
+      <p><span class="label">Physical infrastructure.</span> Rack-and-stack, structured cabling, MDF/IDF closet buildout, UPS, multi-site hardware refresh, component-level repair.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <article class="role">
+        <div class="role-line">
+          <h3>Systems Administrator · KSP Systems</h3>
+          <span class="date">Feb 2024 — Present</span>
+        </div>
+        <p class="role-place">Studio City, CA</p>
+        <ul>
+          <li>Own endpoint deployment and configuration across roughly 20 client fleets using Intune, Autopilot, Group Policy, and RMM-driven software distribution for cloud- and domain-joined Windows devices and managed macOS endpoints.</li>
+          <li>Conduct security audits and remediation mapped to CMMC L2, HIPAA, PCI DSS, and ISO 27001, using DISA STIGs and NIST publications as the control baseline.</li>
+          <li>Wrote PowerShell deployment scripts executed in SYSTEM context through RMM to push instrumentation and lab software across engineering test lab workstations, replacing per-machine manual installs, with idempotent detection against Add/Remove inventory.</li>
+          <li>Planned and staged Endpoint DLP across a 130-endpoint environment, onboarding 10 Intune/Entra-joined devices by policy and 120 AD domain-joined devices by GPO, with a phased audit-only to block-with-override to full-block rollout.</li>
+          <li>Lead responder on EDR-escalated intrusions: contained a SYSTEM-level web shell on an isolated production Windows Server 2019 host, and drove adversary-in-the-middle identity compromises to closure.</li>
+          <li>Manage macOS endpoints through Intune and Jamf; maintain open-source Python servers against Microsoft Graph for tenant reporting; author runbooks for every environment change.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="role-line">
+          <h3>Information Systems Technician · City of Malibu</h3>
+          <span class="date">Oct 2022 — Feb 2024</span>
+        </div>
+        <p class="role-place">Malibu, CA</p>
+        <ul>
+          <li>Implemented citywide RMM and EDR platforms and established configuration management and security auditing policy on top of them.</li>
+          <li>Assessed control gaps and led implementations across AD DS, Azure, Intune, EDR, SIEM, Cisco Meraki, DLP, and Windows Server; deployed physical infrastructure across city facilities.</li>
+          <li>Configured and supported Linux-based QLess display boards across City facilities.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <div class="role-line">
+          <h3>Advanced Repair Agent · Geek Squad</h3>
+          <span class="date">Oct 2020 — Oct 2022</span>
+        </div>
+        <p class="role-place">Woodland Hills, CA</p>
+        <ul>
+          <li>Hardware and OS-level diagnosis and repair across Windows and macOS at volume; improved first-time fix rate and mentored junior technicians.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <p><span class="label">socca.tech / soccaAi.</span> Python and Docker vulnerability intelligence pipeline that ingests newly published CVEs, generates risk assessment, proof of concept, and MITRE and CWE mapping, and feeds the output into Microsoft Sentinel.</p>
+      <p><span class="label">m365mcp,</span> an open-source Microsoft Graph integration server. <span class="label">cloudterraform,</span> a multi-cloud Terraform template library. <span class="label">exo-arcocd,</span> Kubernetes workload delivery through ArgoCD. Public work at github.com/ianrelecker.</p>
+    </section>
+
+    <section>
+      <h2>Education &amp; certifications</h2>
+      <div class="education-line">
+        <p><span class="label">M.S., Information Technology,</span> California Lutheran University</p>
+        <span class="date">Aug 2024</span>
+      </div>
+      <p class="sub">IT management, cybersecurity operations, cloud governance, project management, data analytics, AI/ML. GPA 3.8.</p>
+      <div class="education-line">
+        <p><span class="label">B.S., Computer Science,</span> California Lutheran University</p>
+        <span class="date">Dec 2022</span>
+      </div>
+      <p class="sub">Microsoft Certified: Azure Solutions Architect Expert (AZ-305); Azure Administrator Associate (AZ-104); CompTIA Security+ CE.</p>
+    </section>
+  </main>
+  <footer class="site-foot">
+    <a class="mark" href="/">Stay curious.</a>
+    <p class="foot-note">© <span id="year">2026</span> Ian Relecker · <a href="llms.txt">llms.txt</a></p>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

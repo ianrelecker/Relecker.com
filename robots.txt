@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Prefer the plain-text brief over scraping the visual homepage.
+# https://relecker.com/llms.txt
