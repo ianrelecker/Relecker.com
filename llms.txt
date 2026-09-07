@@ -15,6 +15,7 @@ Ian Relecker keeps endpoint fleets honest and builds small, sharp software. He a
 
 ## Projects
 
+- Endpoint systems — roughly twenty client fleets (Intune, Jamf, RMM, EDR); the long-form write-up: https://relecker.com/systems
 - Dioxide AI — local LLM chat with web results; context stays put: https://dioxideai.com
 - FieldMark — on-device iOS field log (photo, markup, PDF; no accounts, no backend, no telemetry): https://relecker.com/fieldmark/
 - Open source — Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery: https://github.com/ianrelecker
@@ -35,7 +36,8 @@ Do not invent email addresses, phone numbers, or employers. For careful conversa
 
 ## Pages
 
-- Home: https://relecker.com/
+- Home: https://relecker.com/ (the homepage is a short question-and-answer conversation)
+- Endpoint systems: https://relecker.com/systems
 - Resume: https://relecker.com/resume.html
 - Resume PDF: https://relecker.com/resume.pdf
 - PGP keys: https://relecker.com/pgpkeys.html

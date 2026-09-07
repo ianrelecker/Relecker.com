@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endpoint systems — Ian Relecker</title>
+  <meta name="description" content="What running roughly twenty endpoint fleets actually looks like: Intune, Jamf, RMM, EDR, baselines, phased rollouts, and the bad days.">
+  <meta name="theme-color" content="#0b0a09">
+  <meta property="og:title" content="Endpoint systems — Ian Relecker">
+  <meta property="og:description" content="Roughly twenty client fleets, and what keeping them honest actually involves.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://relecker.com/systems">
+  <meta property="og:image" content="https://relecker.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://relecker.com/og.png">
+  <link rel="canonical" href="https://relecker.com/systems">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="subpage">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="wash"></div>
+    <canvas id="dust" class="dust"></canvas>
+    <div class="grain"></div>
+  </div>
+
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="mark" href="/">Ian Relecker</a>
+      <nav aria-label="Primary">
+        <a href="/#ask">Ask</a>
+        <a href="/#work">Work</a>
+        <a href="/systems" aria-current="page">Systems</a>
+        <a href="/resume">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="essay">
+    <a class="back-link" href="/">← Home</a>
+
+    <header class="essay-hero">
+      <p class="kicker">the long answer</p>
+      <h1>Endpoint systems</h1>
+      <p class="lede">Roughly twenty client fleets. Windows and macOS. The part of the job nobody writes a landing page about, which is exactly why it's worth writing down.</p>
+    </header>
+
+    <section>
+      <h2>The shape of it</h2>
+      <p>Every environment is somebody's whole company, and each one arrives with its own history — a domain nobody has audited since 2019, a mix of Entra-joined laptops and machines that have never left the office, a compliance regime that showed up after the network did.</p>
+      <p>The work is making all of that behave the same way. Deployment and configuration run through Intune, Autopilot, Group Policy, and RMM-driven software distribution, with Jamf and Intune covering the macOS side. Software gets packaged silently, MSI or EXE, with detection that is idempotent against Add/Remove inventory so a re-run is never a re-install.</p>
+    </section>
+
+    <section>
+      <h2>Doing it once, not two hundred times</h2>
+      <p>The lever is PowerShell in SYSTEM context, pushed through RMM. One engineering test lab needed instrumentation and lab software across every workstation; the alternative was a technician walking to each machine. A deployment script replaced that, and the detection logic meant it could be run again safely on anything that drifted.</p>
+      <p>The same instinct applies to reporting. Tenant data comes out of Microsoft Graph through open-source Python servers rather than screenshots of a portal, because a number you can re-derive next month is worth more than a number you wrote down.</p>
+    </section>
+
+    <section>
+      <h2>Rollouts that don't detonate</h2>
+      <p>Endpoint DLP across a 130-endpoint environment is the example I reach for. Ten Intune and Entra-joined devices onboarded by policy; a hundred and twenty AD domain-joined devices by GPO. Two delivery mechanisms, one policy intent.</p>
+      <p>It shipped in three phases: audit-only, then block-with-override, then full block. Audit tells you what people actually do — which is never what the policy author assumed. Block-with-override tells you who screams and whether they had a point. Only then does the door close. Skipping straight to the third phase is how you teach an entire company that security is the thing that stops them working.</p>
+    </section>
+
+    <section>
+      <h2>Baselines and evidence</h2>
+      <p>Hardening and audit work maps to CMMC L2, HIPAA, PCI DSS, and ISO 27001, with DISA STIGs and NIST publications as the control baseline underneath. The frameworks differ in vocabulary more than in substance; the underlying question is always the same one — what is configured, how do you know, and can you show me.</p>
+      <p>So every environment change gets a runbook. Not for the auditor. For the version of me who has to touch this in eight months, or for whoever inherits it.</p>
+    </section>
+
+    <section>
+      <h2>The bad days</h2>
+      <p>Most of this is quiet. Occasionally it isn't, and that's when EDR escalates — Huntress or Microsoft Defender putting something in front of me that a human has to decide about.</p>
+      <p>A SYSTEM-level web shell on a production Windows Server 2019 host, contained on an isolated network. Adversary-in-the-middle identity compromises driven to closure. The pattern in both: contain before you investigate, because scope grows while you read. Then figure out what it touched, then write down how it got in, then fix that class of thing rather than that instance of it.</p>
+      <p>Incident response is not heroics. It's having already decided, on a boring day, what you would do.</p>
+    </section>
+
+    <section>
+      <h2>Why I like it</h2>
+      <p>Endpoint work is unfashionable. It's also the layer where security stops being a diagram and becomes whether a specific laptop in a specific person's bag is encrypted, patched, and reporting in.</p>
+      <p>Twenty fleets teaches you that reliability is mostly the absence of exceptions. Every one-off is a future outage with a delay fuse. So the job is to keep removing the special cases until the system is boring — and then to automate the parts that still aren't.</p>
+    </section>
+
+    <p class="essay-out">
+      The formal version of all this lives in the <a href="/resume">resume</a>, and the tools I've written are on <a href="https://github.com/ianrelecker" target="_blank" rel="me noopener">GitHub</a>.
+    </p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-bottom">
+      <a class="mark" href="/">Stay curious.</a>
+      <p class="foot-note">© <span id="year">2026</span> Ian Relecker · <a href="/llms.txt">llms.txt</a></p>
+    </div>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

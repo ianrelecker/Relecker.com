@@ -1,6 +1,7 @@
 {
   "routes": [
     { "route": "/resume", "rewrite": "/resume.html" },
+    { "route": "/systems", "rewrite": "/systems/index.html" },
     { "route": "/pgpkeys", "rewrite": "/pgpkeys.html" },
     { "route": "/security.txt", "rewrite": "/.well-known/security.txt" },
     {

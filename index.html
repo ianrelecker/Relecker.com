@@ -84,105 +84,39 @@
     <div class="nav-inner">
       <a class="mark" href="/">Ian Relecker</a>
       <nav aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="/resume">Resume</a>
         <a href="#ask">Ask</a>
-        <a href="#connect">Connect</a>
+        <a href="#work">Work</a>
+        <a href="/systems">Systems</a>
+        <a href="/resume">Resume</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <p class="kicker">computer person · los angeles</p>
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <h1>
-            <span>Ian</span>
-            <span>Relecker</span>
-          </h1>
-          <p class="lede">I keep systems honest and build the tools I wish existed — endpoint fleets, security operations, and software that stays on-device.</p>
-          <p class="now">Now: FieldMark, twenty fleets, and the unglamorous glue.</p>
-          <div class="hero-actions">
-            <a class="btn" href="/resume">Resume</a>
-            <a class="btn btn--ghost" href="#ask">Ask Ian</a>
-          </div>
-          <ul class="facts">
-            <li>M.S. IT, cybersecurity</li>
-            <li>B.S. Computer Science</li>
-            <li>Azure Solutions Architect Expert</li>
-          </ul>
-        </div>
-        <figure class="portrait">
-          <img src="headshot.jpeg" alt="Portrait of Ian Relecker">
-          <figcaption>Building, breaking, putting it back together.</figcaption>
-        </figure>
+    <section id="ask" class="doorway">
+      <div class="doorway__head">
+        <p class="kicker">computer person · los angeles</p>
+        <h1>Ian Relecker</h1>
+        <p class="lede">I keep systems honest and build the tools I wish existed. Sit down for a minute — ask me something.</p>
       </div>
-    </section>
 
-    <section id="work" class="work">
-      <div class="section-head">
-        <p class="kicker">selected work</p>
-        <h2>In the world</h2>
-      </div>
-      <div class="work-index">
-        <a class="work-row" href="https://dioxideai.com" target="_blank" rel="noopener">
-          <span class="work-num">01</span>
-          <div class="work-body">
-            <h3>Dioxide AI</h3>
-            <p>Local LLM chat with web results when you need them. Context stays put so regulated teams can actually use the model.</p>
-          </div>
-          <span class="work-go">dioxideai.com</span>
-        </a>
-        <a class="work-row" href="/fieldmark/">
-          <span class="work-num">02</span>
-          <div class="work-body">
-            <h3>FieldMark</h3>
-            <p>On-device iOS field log. Photograph issues, mark them up, share a PDF. No accounts, no backend, no telemetry.</p>
-          </div>
-          <span class="work-go">relecker.com/fieldmark</span>
-        </a>
-        <article class="work-row work-row--static">
-          <span class="work-num">03</span>
-          <div class="work-body">
-            <h3>Endpoint systems</h3>
-            <p>Intune, Jamf, RMM, and EDR across roughly twenty client environments. Patching, compliance, first response when an endpoint gets weird.</p>
-          </div>
-          <span class="work-go">practice</span>
-        </article>
-        <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
-          <span class="work-num">04</span>
-          <div class="work-body">
-            <h3>Open source</h3>
-            <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
-          </div>
-          <span class="work-go">github.com/ianrelecker</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="ask" class="ask">
-      <div class="section-head">
-        <p class="kicker">ask ian</p>
-        <h2>A short conversation</h2>
-      </div>
       <div class="chat-shell" id="chatShell">
         <div class="chat-shell__shards" aria-hidden="true"></div>
         <div class="chat-layout">
           <div class="question-panel" aria-label="Suggested questions">
-            <p class="question-panel__title">Questions</p>
+            <p class="question-panel__title">Ask</p>
             <div class="question-buttons">
               <button class="question-button" type="button" data-question="work">
                 <span class="q-num">01</span>
                 <span class="q-text">What are you building right now?</span>
               </button>
-              <button class="question-button" type="button" data-question="background">
+              <button class="question-button" type="button" data-question="days">
                 <span class="q-num">02</span>
-                <span class="q-text">What's your background?</span>
+                <span class="q-text">What do you actually do all day?</span>
               </button>
-              <button class="question-button" type="button" data-question="expertise">
+              <button class="question-button" type="button" data-question="background">
                 <span class="q-num">03</span>
-                <span class="q-text">Where do you add the most value?</span>
+                <span class="q-text">What's your background?</span>
               </button>
               <button class="question-button" type="button" data-question="security">
                 <span class="q-num">04</span>
@@ -194,66 +128,82 @@
               </button>
               <button class="question-button" type="button" data-question="contact">
                 <span class="q-num">06</span>
-                <span class="q-text">How can I connect with you?</span>
+                <span class="q-text">How do I reach you?</span>
               </button>
             </div>
           </div>
           <div class="chat-window" aria-label="Conversation with Ian">
+            <div class="chat-presence">
+              <img src="headshot.jpeg" alt="Portrait of Ian Relecker" width="44" height="44">
+              <div>
+                <p class="chat-presence__name">Ian Relecker</p>
+                <p class="chat-presence__note">Answers below are pre-written by me, not generated. The real one is reachable at the bottom of the page.</p>
+              </div>
+            </div>
             <div id="chatLog" class="chat-log" aria-live="polite"></div>
           </div>
         </div>
       </div>
+
+      <p class="now">Now: FieldMark, twenty fleets, and the unglamorous glue.</p>
     </section>
 
-    <section id="connect" class="connect">
+    <section id="work" class="work">
       <div class="section-head">
-        <p class="kicker">connect</p>
-        <h2>Find me</h2>
+        <p class="kicker">selected work</p>
+        <h2>In the world</h2>
       </div>
-      <ul class="connect-list">
-        <li>
-          <a href="/resume">
-            <span class="connect-name">Resume</span>
-            <span class="connect-meta">the long version</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
-            <span class="connect-name">GitHub</span>
-            <span class="connect-meta">code and notes</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/ian-relecker/" target="_blank" rel="noopener">
-            <span class="connect-name">LinkedIn</span>
-            <span class="connect-meta">the professional version</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://x.com/ianrelecker" target="_blank" rel="me noopener">
-            <span class="connect-name">X</span>
-            <span class="connect-meta">@ianrelecker</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://dioxideai.com" target="_blank" rel="noopener">
-            <span class="connect-name">Dioxide AI</span>
-            <span class="connect-meta">the chatbot</span>
-          </a>
-        </li>
-        <li>
-          <a href="pgpkeys.html">
-            <span class="connect-name">PGP keys</span>
-            <span class="connect-meta">for the careful ones</span>
-          </a>
-        </li>
-      </ul>
+      <div class="work-index">
+        <a class="work-row" href="/systems">
+          <span class="work-num">01</span>
+          <div class="work-body">
+            <h3>Endpoint systems</h3>
+            <p>Intune, Jamf, RMM, and EDR across roughly twenty client environments. Patching, compliance, and first response when an endpoint gets weird.</p>
+          </div>
+          <span class="work-go">the long answer</span>
+        </a>
+        <a class="work-row" href="/fieldmark/">
+          <span class="work-num">02</span>
+          <div class="work-body">
+            <h3>FieldMark</h3>
+            <p>On-device iOS field log. Photograph issues, mark them up, share a PDF. No accounts, no backend, no telemetry.</p>
+          </div>
+          <span class="work-go">relecker.com/fieldmark</span>
+        </a>
+        <a class="work-row" href="https://dioxideai.com" target="_blank" rel="noopener">
+          <span class="work-num">03</span>
+          <div class="work-body">
+            <h3>Dioxide AI</h3>
+            <p>Local LLM chat with web results when you need them. Context stays put so regulated teams can actually use the model.</p>
+          </div>
+          <span class="work-go">dioxideai.com ↗</span>
+        </a>
+        <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
+          <span class="work-num">04</span>
+          <div class="work-body">
+            <h3>Open source</h3>
+            <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
+          </div>
+          <span class="work-go">github.com/ianrelecker ↗</span>
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer class="site-foot">
-    <button id="hashtag" type="button">Stay curious.</button>
-    <p class="foot-note">© <span id="year">2026</span> Ian Relecker · <a href="llms.txt">llms.txt</a></p>
+  <footer class="site-foot" id="connect">
+    <nav class="elsewhere" aria-label="Elsewhere">
+      <span class="elsewhere__label">Elsewhere</span>
+      <a href="/resume">Resume</a>
+      <a href="https://github.com/ianrelecker" target="_blank" rel="me noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/ian-relecker/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/ianrelecker" target="_blank" rel="me noopener">X</a>
+      <a href="https://dioxideai.com" target="_blank" rel="noopener">Dioxide AI</a>
+      <a href="/pgpkeys">PGP</a>
+    </nav>
+    <div class="foot-bottom">
+      <button id="hashtag" type="button">Stay curious.</button>
+      <p class="foot-note">© <span id="year">2026</span> Ian Relecker · <a href="llms.txt">llms.txt</a></p>
+    </div>
   </footer>
 
   <script>
@@ -270,55 +220,83 @@
       let busy = false;
 
       const responses = {
-        work: [
-          "FieldMark — an on-device iOS field log for photographing issues, marking them up, and sharing a PDF.",
-          "Dioxide AI is still in motion: a local chatbot so teams can use models without leaking context.",
-          "And a lot of unglamorous fleet work: Intune, Jamf, EDR, and the glue that keeps twenty environments honest."
-        ],
-        background: [
-          "M.S. in Information Technology with a cybersecurity concentration, B.S. in Computer Science — both from Cal Lutheran.",
-          "I spent years repairing machines at volume, then ran city IT in Malibu, and now I administer endpoint fleets as a consultant.",
-          "The through-line is the same: make the system boringly reliable, then automate the parts that aren't."
-        ],
-        expertise: [
-          "Endpoint engineering at scale — Intune, Autopilot, Jamf, RMM, and the PowerShell that makes it repeatable.",
-          "Security operations when something actually happens: EDR escalations, identity compromise, containing a web shell.",
-          "And shipping small, sharp tools — on-device software, Graph automation, AI interfaces with the blast radius designed in."
-        ],
-        security: [
-          "Security is a culture, not a checklist. Reduce blast radius, instrument everything, keep humans in the loop.",
-          "When AI is involved I want auditability and privacy so the model is a force multiplier, not a liability.",
-          "Most of the real work is baselines, evidence, and making the secure path the easy path."
-        ],
-        learning: [
-          "Kubernetes internals — schedulers, networking, and policy as code without treating the cluster as a black box.",
-          "Hardened cloud pipelines so standing up an audit-ready environment takes minutes, not a week of clicking.",
-          "And whatever the next on-device product needs. Stay curious is not a slogan."
-        ],
-        contact: [
-          "GitHub, LinkedIn, and X are in Connect below. The resume is at relecker.com/resume.html — PDF too.",
-          "For careful conversations, grab a PGP key — or Signal, @relecker.01."
-        ]
+        work: {
+          lines: [
+            "FieldMark — an on-device iOS field log for photographing issues, marking them up, and sharing a PDF. Nothing leaves the phone.",
+            "Dioxide AI is still in motion: a local chatbot so teams can use models without leaking context.",
+            "And a lot of unglamorous fleet work: Intune, Jamf, EDR, and the glue that keeps twenty environments honest."
+          ],
+          link: { href: "/fieldmark/", text: "Look at FieldMark" }
+        },
+        days: {
+          lines: [
+            "Endpoint engineering, mostly. Roughly twenty client fleets on Intune, Autopilot, Jamf, Group Policy, and RMM — Windows and macOS.",
+            "Then the security half: EDR escalations, baselines against NIST and CIS, audits mapped to CMMC L2, HIPAA, PCI DSS, ISO 27001.",
+            "The interesting days are the bad ones. A SYSTEM-level web shell on a production server. An adversary-in-the-middle identity compromise. Containment first, then the runbook."
+          ],
+          link: { href: "/systems", text: "The long answer" }
+        },
+        background: {
+          lines: [
+            "M.S. in Information Technology with a cybersecurity concentration, B.S. in Computer Science — both from Cal Lutheran.",
+            "I spent years repairing machines at volume, then ran city IT in Malibu, and now I administer endpoint fleets as a consultant.",
+            "The through-line is the same: make the system boringly reliable, then automate the parts that aren't."
+          ],
+          link: { href: "/resume", text: "Read the resume" }
+        },
+        security: {
+          lines: [
+            "Security is a culture, not a checklist. Reduce blast radius, instrument everything, keep humans in the loop.",
+            "When AI is involved I want auditability and privacy so the model is a force multiplier, not a liability.",
+            "Most of the real work is baselines, evidence, and making the secure path the easy path."
+          ]
+        },
+        learning: {
+          lines: [
+            "Kubernetes internals — schedulers, networking, and policy as code without treating the cluster as a black box.",
+            "Hardened cloud pipelines so standing up an audit-ready environment takes minutes, not a week of clicking.",
+            "And whatever the next on-device product needs. Stay curious is not a slogan."
+          ]
+        },
+        contact: {
+          lines: [
+            "Email is ianrelecker@gmail.com. GitHub, LinkedIn, and X are down at the bottom of this page.",
+            "For careful conversations, grab a PGP key — or Signal, @relecker.01."
+          ],
+          link: { href: "/pgpkeys", text: "PGP keys" }
+        }
       };
 
-      const addMessage = (role, lines, typing) => {
+      const addMessage = (role, payload, typing) => {
         const wrapper = document.createElement('div');
         wrapper.className = `message message--${role}${typing ? ' message--typing' : ''}`;
+
         const who = document.createElement('span');
         who.className = 'message__who';
         who.textContent = role === 'user' ? 'You' : 'Ian';
+
         const bubble = document.createElement('div');
         bubble.className = 'message__bubble';
+
         if (typing) {
           bubble.innerHTML = '<span></span><span></span><span></span>';
         } else {
-          const payload = Array.isArray(lines) ? lines : [lines];
-          payload.forEach((line) => {
+          const data = typeof payload === 'string' ? { lines: [payload] } : payload;
+          const lines = Array.isArray(data.lines) ? data.lines : [data.lines];
+          lines.forEach((line) => {
             const paragraph = document.createElement('p');
             paragraph.textContent = line;
             bubble.appendChild(paragraph);
           });
+          if (data.link) {
+            const anchor = document.createElement('a');
+            anchor.className = 'message__link';
+            anchor.href = data.link.href;
+            anchor.textContent = data.link.text;
+            bubble.appendChild(anchor);
+          }
         }
+
         wrapper.appendChild(who);
         wrapper.appendChild(bubble);
         chatLog.appendChild(wrapper);
@@ -336,7 +314,7 @@
         busy = true;
         buttons.forEach((b) => { b.disabled = true; });
         addMessage('user', text);
-        const typing = addMessage('ai', [], true);
+        const typing = addMessage('ai', null, true);
 
         window.setTimeout(() => {
           typing.remove();
@@ -344,16 +322,17 @@
           busy = false;
           buttons.forEach((b) => { b.disabled = false; });
           button.classList.add('question-button--asked');
-          button.focus();
         }, 420);
       };
 
       buttons.forEach((button) => button.addEventListener('click', handleQuestion));
 
-      addMessage('ai', [
-        "Hey — I'm Ian.",
-        "Pick a question. I'll keep it short."
-      ]);
+      addMessage('ai', {
+        lines: [
+          "Hey — I'm Ian.",
+          "Pick a question. I'll keep it short."
+        ]
+      });
 
       const triggerBreak = () => {
         if (
