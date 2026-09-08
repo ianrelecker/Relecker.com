@@ -30,11 +30,15 @@
     },
     {
       "route": "/style.css",
-      "headers": { "Cache-Control": "public, max-age=86400, must-revalidate" }
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
     },
     {
       "route": "/site.js",
-      "headers": { "Cache-Control": "public, max-age=86400, must-revalidate" }
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
+    },
+    {
+      "route": "/faq.js",
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
     }
   ],
   "responseOverrides": {
