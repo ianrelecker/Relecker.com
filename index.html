@@ -25,12 +25,6 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
-  <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
-  <script>
-    window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
-    window.amplitude.init('4f2be71005df1ea1dc7314e139aa25ac', {autocapture: {elementInteractions: true}});
-  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,7 +35,7 @@
       "@type": "Person",
       "name": "Ian Relecker",
       "url": "https://relecker.com/",
-      "image": "https://relecker.com/headshot.jpeg",
+      "image": "https://relecker.com/headshot.jpeg?v=2",
       "jobTitle": "Systems administrator",
       "description": "Systems, security, and on-device software. Endpoint fleets, incident response, and tools that keep data on the device.",
       "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
@@ -103,49 +97,33 @@
       <div class="chat-shell" id="chatShell">
         <div class="chat-shell__shards" aria-hidden="true"></div>
         <div class="chat-layout">
-          <div class="question-panel" aria-label="Suggested questions">
-            <p class="question-panel__title">Ask</p>
-            <div class="question-buttons">
-              <button class="question-button" type="button" data-question="work">
-                <span class="q-num">01</span>
-                <span class="q-text">What are you building right now?</span>
-              </button>
-              <button class="question-button" type="button" data-question="days">
-                <span class="q-num">02</span>
-                <span class="q-text">What do you actually do all day?</span>
-              </button>
-              <button class="question-button" type="button" data-question="background">
-                <span class="q-num">03</span>
-                <span class="q-text">What's your background?</span>
-              </button>
-              <button class="question-button" type="button" data-question="security">
-                <span class="q-num">04</span>
-                <span class="q-text">How do you think about security?</span>
-              </button>
-              <button class="question-button" type="button" data-question="learning">
-                <span class="q-num">05</span>
-                <span class="q-text">What's on your learning roadmap?</span>
-              </button>
-              <button class="question-button" type="button" data-question="contact">
-                <span class="q-num">06</span>
-                <span class="q-text">How do I reach you?</span>
-              </button>
-            </div>
-          </div>
           <div class="chat-window" aria-label="Conversation with Ian">
             <div class="chat-presence">
-              <img src="headshot.jpeg" alt="Portrait of Ian Relecker" width="44" height="44">
+              <img src="headshot.jpeg?v=2" alt="Portrait of Ian Relecker" width="44" height="44">
               <div>
-                <p class="chat-presence__name">Ian Relecker</p>
-                <p class="chat-presence__note">Answers below are pre-written by me, not generated. The real one is reachable at the bottom of the page.</p>
+                <p class="chat-presence__name">Ian Relecker <span class="chat-presence__dot" aria-hidden="true"></span></p>
               </div>
             </div>
-            <div id="chatLog" class="chat-log" aria-live="polite"></div>
+            <div id="chatLog" class="chat-log"></div>
+            <div id="chatStatus" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+            <div class="chat-chips" id="chatChips" aria-label="Suggested questions"></div>
+            <form class="chat-form" id="chatForm" autocomplete="off">
+              <label class="visually-hidden" for="chatInput">Ask a question</label>
+              <input
+                class="chat-form__input"
+                id="chatInput"
+                name="q"
+                type="text"
+                maxlength="300"
+                placeholder="Ask me anything — fleets, local models, a bad day…"
+              >
+              <button class="chat-form__send" type="submit" id="chatSend">Ask</button>
+            </form>
           </div>
         </div>
       </div>
 
-      <p class="now">Now: FieldMark, twenty fleets, and the unglamorous glue.</p>
+      <p class="now">Now: twenty fleets, and the unglamorous glue.</p>
     </section>
 
     <section id="work" class="work">
@@ -162,16 +140,8 @@
           </div>
           <span class="work-go">the long answer</span>
         </a>
-        <a class="work-row" href="/fieldmark/">
-          <span class="work-num">02</span>
-          <div class="work-body">
-            <h3>FieldMark</h3>
-            <p>On-device iOS field log. Photograph issues, mark them up, share a PDF. No accounts, no backend, no telemetry.</p>
-          </div>
-          <span class="work-go">relecker.com/fieldmark</span>
-        </a>
         <a class="work-row" href="https://dioxideai.com" target="_blank" rel="noopener">
-          <span class="work-num">03</span>
+          <span class="work-num">02</span>
           <div class="work-body">
             <h3>Dioxide AI</h3>
             <p>Local LLM chat with web results when you need them. Context stays put so regulated teams can actually use the model.</p>
@@ -179,7 +149,7 @@
           <span class="work-go">dioxideai.com ↗</span>
         </a>
         <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
-          <span class="work-num">04</span>
+          <span class="work-num">03</span>
           <div class="work-body">
             <h3>Open source</h3>
             <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
@@ -206,33 +176,46 @@
     </div>
   </footer>
 
+  <script src="/faq.js"></script>
   <script>
     (function () {
       const year = document.getElementById('year');
       if (year) year.textContent = String(new Date().getFullYear());
 
       const chatLog = document.getElementById('chatLog');
-      const buttons = document.querySelectorAll('[data-question]');
+      const chatStatus = document.getElementById('chatStatus');
+      const chatChips = document.getElementById('chatChips');
       const hashtag = document.getElementById('hashtag');
       const chatShell = document.getElementById('chatShell');
       const shardsContainer = document.querySelector('.chat-shell__shards');
+      const chatForm = document.getElementById('chatForm');
+      const chatInput = document.getElementById('chatInput');
+      const chatSend = document.getElementById('chatSend');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let breakTimeout = null;
       let busy = false;
+      let lastKey = null;
+      const asked = new Set();
+      const moreUsed = new Set();
 
       const responses = {
         work: {
           lines: [
-            "FieldMark — an on-device iOS field log for photographing issues, marking them up, and sharing a PDF. Nothing leaves the phone.",
-            "Dioxide AI is still in motion: a local chatbot so teams can use models without leaking context.",
-            "And a lot of unglamorous fleet work: Intune, Jamf, EDR, and the glue that keeps twenty environments honest."
+            "I'm a big AI guy, on my own terms. Local models, MCP servers so agents can touch Graph and mail without the tenant spilling, and OpenChamber — an agentic environment I run on top of OpenCode.",
+            "Dioxide AI is the public face of that: a local chatbot so context stays put. GitHub has the rest.",
+            "And the day job: roughly twenty fleets, Intune, Jamf, EDR, and the unglamorous glue."
           ],
-          link: { href: "/fieldmark/", text: "Look at FieldMark" }
+          link: { href: "https://github.com/ianrelecker", text: "GitHub" }
         },
         days: {
           lines: [
             "Endpoint engineering, mostly. Roughly twenty client fleets on Intune, Autopilot, Jamf, Group Policy, and RMM — Windows and macOS.",
             "Then the security half: EDR escalations, baselines against NIST and CIS, audits mapped to CMMC L2, HIPAA, PCI DSS, ISO 27001.",
             "The interesting days are the bad ones. A SYSTEM-level web shell on a production server. An adversary-in-the-middle identity compromise. Containment first, then the runbook."
+          ],
+          more: [
+            "A lot of it is quiet. Packaging, compliance drift, a Mac that won't take Platform SSO out, a developer blocked by WDAC.",
+            "Then someone forwards an EDR page and the day changes shape. That's the job."
           ],
           link: { href: "/systems", text: "The long answer" }
         },
@@ -253,9 +236,85 @@
         },
         learning: {
           lines: [
-            "Kubernetes internals — schedulers, networking, and policy as code without treating the cluster as a black box.",
+            "Kubernetes internals — schedulers, networking, and policy as code without treating the cluster as a black box. Same cluster also shards local LLMs when I want more than one box.",
             "Hardened cloud pipelines so standing up an audit-ready environment takes minutes, not a week of clicking.",
-            "And whatever the next on-device product needs. Stay curious is not a slogan."
+            "And whatever the next agent or on-device product needs. Stay curious is not a slogan."
+          ]
+        },
+        fieldmark: {
+          lines: [
+            "An on-device iOS field log. Photograph an issue, mark it up, share a PDF — and none of it leaves the phone.",
+            "That constraint is the product. Field techs work in places where uploading a customer's site photos to somebody's cloud is either a compliance problem or just rude.",
+            "No account, no sync, no telemetry. The PDF is the export format because everyone already knows what to do with a PDF."
+          ],
+          link: { href: "/fieldmark/", text: "Look at FieldMark" }
+        },
+        dioxide: {
+          lines: [
+            "A local chatbot, with web results when you actually need them. The point is that context stays put.",
+            "Plenty of teams are told they can't use a model because the data can't leave the building. Running it locally turns that from a policy fight into a deployment question.",
+            "It's the public face of a larger setup — local models, MCP, agents. Still in motion."
+          ]
+        },
+        rollout: {
+          lines: [
+            "In phases, and the phases are not decoration. Endpoint DLP across a 130-endpoint environment is the example I reach for.",
+            "Ten Intune and Entra-joined devices onboarded by policy, a hundred and twenty AD domain-joined by GPO. Two delivery mechanisms, one policy intent.",
+            "Audit-only, then block-with-override, then full block. Audit tells you what people actually do, which is never what the policy author assumed. Block-with-override tells you who screams and whether they had a point. Only then does the door close.",
+            "Skipping to phase three is how you teach a company that security is the thing that stops them working."
+          ],
+          more: [
+            "There was also a classification scanner against on-prem file shares, because DLP without knowing what's actually in the shares is theater.",
+            "Same instinct on a ~300-machine browser migration: don't cut over on a Monday and find out the finance add-in dies."
+          ],
+          link: { href: "/systems", text: "The long answer" }
+        },
+        incident: {
+          lines: [
+            "A SYSTEM-level web shell on a production server. An adversary-in-the-middle identity compromise. Those are the two I think about.",
+            "Containment first — always. Scope it, cut it off, then work the runbook. The instinct to start investigating before you've stopped the bleeding is the expensive one.",
+            "Afterward the honest question isn't who did it, it's what configuration made it possible and what evidence would have caught it sooner.",
+            "The interesting days are the bad ones."
+          ],
+          more: [
+            "The web shell was on an isolated production Windows Server 2019 host. Huntress put it in front of me. Contain, then figure out what it touched, then fix the class of thing — not just that instance.",
+            "The AiTM cases were identity. Unmanaged devices with no Entra record. Same pattern: stop the bleeding, then write down how it got in."
+          ],
+          link: { href: "/systems", text: "The long answer" }
+        },
+        automation: {
+          lines: [
+            "Anything that would otherwise mean a technician walking to two hundred machines.",
+            "The lever is PowerShell in SYSTEM context, pushed through RMM. One engineering test lab needed instrumentation across every workstation — a deployment script replaced the walk, with detection idempotent against Add/Remove inventory so a re-run is never a re-install.",
+            "Same instinct for reporting. Tenant data comes out of Microsoft Graph through open-source Python servers, not screenshots of a portal. A number you can re-derive next month is worth more than a number you wrote down."
+          ]
+        },
+        stack: {
+          lines: [
+            "Endpoint: Intune, Autopilot, Jamf, Group Policy, Atera RMM, BitLocker, silent MSI/EXE packaging.",
+            "Identity and cloud: Entra ID, Conditional Access, Active Directory, Microsoft 365, Azure, Google Workspace and GCP.",
+            "Scripting and infra: PowerShell, Microsoft Graph API, Python, Bash, Terraform, Docker, Kubernetes with ArgoCD.",
+            "Security: Huntress and Defender for EDR, endpoint DLP, vulnerability management, with NIST, CIS, and DISA STIGs as the baseline underneath."
+          ],
+          link: { href: "/resume", text: "Read the resume" }
+        },
+        hire: {
+          lines: [
+            "Depends who's asking. If you need someone who will click through Intune forever and never write the script, no.",
+            "If you need the person who turns twenty slightly-different fleets into one boringly reliable system — and shows up when an endpoint gets weird — that's the job I already have."
+          ],
+          link: { href: "/resume", text: "Read the resume" }
+        },
+        malibu: {
+          lines: [
+            "City IT is public-service constraints with private-sector uptime expectations.",
+            "You learn to ship the thing that still works when half the building is at a council meeting and the other half is on a beach. Nobody cares about your elegant design if the inspection iPads are dead."
+          ]
+        },
+        hot: {
+          lines: [
+            "Most AI in IT is a chatbot taped to a ticket queue. The useful version is the opposite: a model that never sees the customer's data, running next to the work, with an audit trail.",
+            "So I run it that way. Local models, agents with tools, humans in the loop for anything that can blow up. That's why Dioxide is local."
           ]
         },
         contact: {
@@ -264,39 +323,167 @@
             "For careful conversations, grab a PGP key — or Signal, @relecker.01."
           ],
           link: { href: "/pgpkeys", text: "PGP keys" }
+        },
+        ai: {
+          lines: [
+            "Yes. I'm a big AI guy, on my own terms.",
+            "Local models so context doesn't leave the machine. MCP servers I wrote so agents can query Graph and mail without pasting a tenant into someone else's chatbot. OpenChamber — an agentic environment on top of OpenCode — is how I actually work.",
+            "The point isn't the demo. It's agents that do the unglamorous work, with humans in the loop for anything that can blow up."
+          ],
+          more: [
+            "Ollama on the box. Kubernetes-side sharding with Exo when I want more than one machine. Dioxide AI is the public face of that.",
+            "Morning briefs, ticket drafts, this site. If it's repetitive and I have an API, an agent gets a runbook."
+          ],
+          link: { href: "https://github.com/ianrelecker", text: "GitHub" }
         }
+      };
+
+      // Match free-text questions to the written answers on this page.
+      const keywords = {
+        work:       ['building', 'building right now', 'project', 'projects', 'working on', 'now', 'current'],
+        days:       ['all day', 'day to day', 'daily', 'what do you do', 'work like'],
+        background: ['background', 'school', 'degree', 'study', 'studied', 'education', 'college', 'university', 'masters', 'career', 'history'],
+        security:   ['security', 'secure', 'threat', 'risk', 'philosophy', 'think about security'],
+        learning:   ['learning', 'learn', 'roadmap', 'next', 'studying', 'kubernetes', 'k8s', 'curious'],
+        fieldmark:  ['fieldmark', 'field mark', 'ios', 'iphone', 'app', 'pdf', 'on-device', 'on device'],
+        dioxide:    ['dioxide', 'dioxide ai'],
+        ai:         ['ai guy', 'into ai', 'local model', 'local llm', 'your setup', 'homelab', 'openchamber', 'ollama', 'mcp'],
+        rollout:    ['rollout', 'roll out', 'ship', 'deploy', 'dlp', 'phase', 'phases', 'migration', 'fleets not catch', 'catch fire'],
+        incident:   ['incident', 'breach', 'compromise', 'hacked', 'attack', 'web shell', 'webshell', 'bad day', 'response', 'ir'],
+        automation: ['automate', 'automation', 'script', 'scripting', 'powershell', 'graph', 'tooling'],
+        stack:      ['stack', 'toolkit', 'tools', 'tech', 'technologies', 'skills', 'intune', 'jamf', 'terraform', 'docker'],
+        hire:       ['hire you', 'hire', 'hiring', 'would you hire', 'good at', 'why you'],
+        malibu:     ['malibu', 'city it', 'city', 'public sector', 'municipal'],
+        hot:        ['hot take', 'ai in', 'artificial intelligence', 'opinion on ai'],
+        contact:    ['contact', 'reach', 'email', 'get in touch', 'talk', 'available', 'signal', 'pgp']
+      };
+
+      const prompts = {
+        work: 'What are you building?',
+        days: 'What do you actually do all day?',
+        background: "What's your background?",
+        security: 'How do you think about security?',
+        learning: "What's on the learning roadmap?",
+        fieldmark: 'What is FieldMark?',
+        dioxide: "What's Dioxide AI?",
+        ai: "What's the AI setup?",
+        rollout: 'How do twenty fleets not catch fire?',
+        incident: 'Tell me about a bad day.',
+        automation: 'What do you automate?',
+        stack: "What's in the toolkit?",
+        hire: 'Would you hire you?',
+        malibu: 'What did city IT teach you?',
+        hot: 'Hot take on AI in this job?',
+        contact: 'How do I reach you?'
+      };
+
+      const followUps = {
+        work: ['ai', 'dioxide', 'days'],
+        days: ['incident', 'automation', 'hire'],
+        background: ['malibu', 'hire', 'learning'],
+        security: ['incident', 'dioxide', 'rollout'],
+        learning: ['ai', 'k8s', 'hot'],
+        fieldmark: ['ai', 'hot', 'work'],
+        dioxide: ['ai', 'hot', 'security'],
+        rollout: ['incident', 'automation', 'days'],
+        incident: ['security', 'rollout', 'days'],
+        automation: ['stack', 'rollout', 'days'],
+        stack: ['automation', 'days', 'hire'],
+        hire: ['days', 'background', 'contact'],
+        malibu: ['background', 'days', 'security'],
+        hot: ['ai', 'dioxide', 'security'],
+        contact: ['hire', 'work', 'background']
+      };
+
+      const starters = ['days', 'incident', 'ai', 'hire', 'rollout', 'contact'];
+
+      const faq = window.IAN_FAQ || { extra: {}, phrases: {}, keywords: {}, followUps: {} };
+      Object.assign(responses, faq.extra);
+      Object.assign(followUps, faq.followUps);
+      Object.keys(faq.keywords || {}).forEach((key) => {
+        keywords[key] = (keywords[key] || []).concat(faq.keywords[key]);
+      });
+
+      const normQ = (text) => text.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+
+      const matchQuestion = (text) => {
+        const q = normQ(text);
+        if (!q) return null;
+        if ((faq.skip || []).some((phrase) => {
+          const skipped = normQ(phrase);
+          return skipped && (q === skipped || q.indexOf(skipped) !== -1);
+        })) return null;
+        if (faq.phrases && faq.phrases[q]) return faq.phrases[q];
+        let phraseHit = null;
+        let phraseLen = 0;
+        Object.keys(faq.phrases || {}).forEach((phrase) => {
+          if (phrase.length < 12) return;
+          if (q.indexOf(phrase) !== -1 && phrase.length > phraseLen) {
+            phraseLen = phrase.length;
+            phraseHit = faq.phrases[phrase];
+          }
+        });
+        if (phraseHit) return phraseHit;
+
+        const padded = ' ' + q + ' ';
+        let best = null;
+        let bestScore = 0;
+        Object.keys(keywords).forEach((key) => {
+          let score = 0;
+          keywords[key].forEach((word) => {
+            const normalizedWord = normQ(word);
+            if (!normalizedWord) return;
+            const wordCount = normalizedWord.split(' ').length;
+            if (padded.indexOf(' ' + normalizedWord + ' ') !== -1) score += wordCount * 3;
+            else if (q.indexOf(normalizedWord) !== -1) score += wordCount;
+          });
+          if (score > bestScore) { bestScore = score; best = key; }
+        });
+        return bestScore >= 3 ? best : null;
+      };
+
+      const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+      const normalize = (payload) => {
+        if (typeof payload === 'string') return { lines: [payload] };
+        if (Array.isArray(payload)) return { lines: payload };
+        return payload;
+      };
+
+      const addLink = (bubble, link) => {
+        if (!link) return;
+        const anchor = document.createElement('a');
+        anchor.className = 'message__link';
+        anchor.href = link.href;
+        anchor.textContent = link.text;
+        bubble.appendChild(anchor);
+      };
+
+      const announceAnswer = (payload) => {
+        if (!chatStatus) return;
+        const data = normalize(payload);
+        chatStatus.textContent = `Ian answered: ${data.lines.join(' ')}`;
       };
 
       const addMessage = (role, payload, typing) => {
         const wrapper = document.createElement('div');
         wrapper.className = `message message--${role}${typing ? ' message--typing' : ''}`;
-
         const who = document.createElement('span');
         who.className = 'message__who';
         who.textContent = role === 'user' ? 'You' : 'Ian';
-
         const bubble = document.createElement('div');
         bubble.className = 'message__bubble';
-
         if (typing) {
           bubble.innerHTML = '<span></span><span></span><span></span>';
         } else {
-          const data = typeof payload === 'string' ? { lines: [payload] } : payload;
-          const lines = Array.isArray(data.lines) ? data.lines : [data.lines];
-          lines.forEach((line) => {
+          const data = normalize(payload);
+          data.lines.forEach((line) => {
             const paragraph = document.createElement('p');
             paragraph.textContent = line;
             bubble.appendChild(paragraph);
           });
-          if (data.link) {
-            const anchor = document.createElement('a');
-            anchor.className = 'message__link';
-            anchor.href = data.link.href;
-            anchor.textContent = data.link.text;
-            bubble.appendChild(anchor);
-          }
+          addLink(bubble, data.link);
         }
-
         wrapper.appendChild(who);
         wrapper.appendChild(bubble);
         chatLog.appendChild(wrapper);
@@ -304,35 +491,217 @@
         return wrapper;
       };
 
-      const handleQuestion = (event) => {
-        const button = event.currentTarget;
-        const key = button.getAttribute('data-question');
-        if (!key || !responses[key] || busy) return;
-        const label = button.querySelector('.q-text');
-        const text = (label ? label.textContent : button.textContent).trim();
-
-        busy = true;
-        buttons.forEach((b) => { b.disabled = true; });
-        addMessage('user', text);
-        const typing = addMessage('ai', null, true);
-
-        window.setTimeout(() => {
-          typing.remove();
-          addMessage('ai', responses[key]);
-          busy = false;
-          buttons.forEach((b) => { b.disabled = false; });
-          button.classList.add('question-button--asked');
-        }, 420);
+      const typeAnswer = async (payload) => {
+        const data = normalize(payload);
+        const wrapper = addMessage('ai', { lines: [''] });
+        const bubble = wrapper.querySelector('.message__bubble');
+        bubble.innerHTML = '';
+        if (reduceMotion) {
+          data.lines.forEach((line) => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = line;
+            bubble.appendChild(paragraph);
+          });
+          addLink(bubble, data.link);
+          announceAnswer(data);
+          return wrapper;
+        }
+        wrapper.classList.add('message--writing');
+        for (let i = 0; i < data.lines.length; i += 1) {
+          const paragraph = document.createElement('p');
+          bubble.appendChild(paragraph);
+          const tokens = data.lines[i].split(/(\s+)/);
+          for (const token of tokens) {
+            paragraph.textContent += token;
+            chatLog.scrollTop = chatLog.scrollHeight;
+            if (!token.trim()) continue;
+            const wait = /[.!?]$/.test(token) ? 110 : 18;
+            await sleep(wait);
+          }
+        }
+        wrapper.classList.remove('message--writing');
+        addLink(bubble, data.link);
+        chatLog.scrollTop = chatLog.scrollHeight;
+        announceAnswer(data);
+        return wrapper;
       };
 
-      buttons.forEach((button) => button.addEventListener('click', handleQuestion));
+      const setBusy = (state) => {
+        busy = state;
+        if (chatSend) chatSend.disabled = state;
+        if (chatInput) chatInput.disabled = state;
+        if (chatChips) {
+          chatChips.querySelectorAll('button').forEach((b) => { b.disabled = state; });
+        }
+      };
 
-      addMessage('ai', {
-        lines: [
-          "Hey — I'm Ian.",
-          "Pick a question. I'll keep it short."
-        ]
-      });
+      const renderChips = (fromKey) => {
+        if (!chatChips) return;
+        chatChips.innerHTML = '';
+        const keys = [];
+        const push = (key, ignoreAsked) => {
+          if (
+            key &&
+            responses[key] &&
+            prompts[key] &&
+            (ignoreAsked || !asked.has(key)) &&
+            keys.indexOf(key) === -1
+          ) {
+            keys.push(key);
+          }
+        };
+        if (fromKey && followUps[fromKey]) followUps[fromKey].forEach((key) => push(key));
+        starters.forEach((key) => push(key));
+        Object.keys(prompts).forEach((key) => push(key));
+        if (keys.length < 3) starters.forEach((key) => push(key, true));
+        if (keys.length < 3) Object.keys(prompts).forEach((key) => push(key, true));
+        keys.slice(0, 3).forEach((key) => {
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'chat-chip';
+          chip.textContent = prompts[key];
+          chip.addEventListener('click', () => ask(prompts[key], key));
+          chatChips.appendChild(chip);
+        });
+      };
+
+      const egg = (text) => {
+        const q = normQ(text);
+        if (/\b(stay curious|shatter|break it|break this)\b/.test(q)) {
+          triggerBreak();
+          return { lines: ["Alright."] };
+        }
+        if (/^(hi+|hey+|hello|yo|sup|howdy|hiya|hi there|hey there|hello there)$/.test(q) ||
+            /^(whats up|what s up|wassup|wazzup|whatup)$/.test(q)) {
+          return { lines: ["Hey. What's up — work question, or just poking around?"] };
+        }
+        if (/^(how are you|how re you|hows it going|how is it going|how you doing|you good|you alright)$/.test(q)) {
+          return { lines: ["Good. Fleets are quiet, which is the goal. You?"] };
+        }
+        if (/^(good morning|morning|good afternoon|afternoon|good evening|evening)$/.test(q)) {
+          return { lines: ["Hey. Ask me something when you're ready."] };
+        }
+        if (/^(thanks|thank you|thx|ty|appreciate it|cheers)$/.test(q)) {
+          return { lines: ["Anytime."] };
+        }
+        if (/^(cool|nice|awesome|sick|dope|love it|lol|lmao|haha|hahaha|true|fair|makes sense|got it|okay|ok|k)$/.test(q)) {
+          return { lines: ["Yeah."] };
+        }
+        if (/^(bye|goodbye|see ya|see you|later|cya|take care)$/.test(q)) {
+          return { lines: ["Later. Email if you need the real one."] };
+        }
+        if (/^(whoa|woah|wow|damn|wild)$/.test(q)) {
+          return { lines: ["Yeah. The interesting days are the bad ones."] };
+        }
+        if (/^(im good|i m good|i am good|doing well|pretty good|not bad|same|nm|not much)$/.test(q)) {
+          return { lines: ["Good. Ask me something when you want."] };
+        }
+        if (/^(just looking|just browsing|checking you out|poking around|looking around)$/.test(q)) {
+          return responses.browsing || { lines: ["Poke around. Chips below, or type."] };
+        }
+        return null;
+      };
+
+      const isFollowOn = (q) => (
+        /^(why|why not|how|how so|and|so|then|more|go on|continue|really|oh|huh|explain|example|for example)$/.test(q) ||
+        /^(tell me more|say more|keep going|what happened|what happened next|and then|what do you mean|like what|go deeper)$/.test(q)
+      );
+
+      const followOnAnswer = () => {
+        if (!lastKey || !responses[lastKey]) return null;
+        const topic = responses[lastKey];
+        if (topic.more && !moreUsed.has(lastKey)) {
+          moreUsed.add(lastKey);
+          return { payload: { lines: topic.more, link: topic.link }, key: lastKey, markAsked: false };
+        }
+        return {
+          payload: { lines: ["That's as far as I wrote that one out. Pick a thread below, or ask something else."] },
+          key: lastKey,
+          markAsked: false
+        };
+      };
+
+      const ask = async (text, knownKey) => {
+        if (busy || !text) return;
+        setBusy(true);
+        addMessage('user', text);
+
+        const nicety = !knownKey ? egg(text) : null;
+        if (nicety) {
+          await sleep(reduceMotion ? 0 : 220);
+          await typeAnswer(nicety);
+          renderChips(null);
+          setBusy(false);
+          if (chatInput) chatInput.focus();
+          return;
+        }
+
+        let key = knownKey && responses[knownKey] ? knownKey : null;
+        let canned = key ? responses[key] : null;
+        if (!canned && isFollowOn(normQ(text))) {
+          const follow = followOnAnswer();
+          if (follow) {
+            canned = follow.payload;
+            key = follow.markAsked ? follow.key : null;
+            if (follow.markAsked) asked.add(follow.key);
+            lastKey = follow.key;
+            await sleep(reduceMotion ? 0 : 280);
+            await typeAnswer(canned);
+            renderChips(follow.key);
+            setBusy(false);
+            if (chatInput) chatInput.focus();
+            return;
+          }
+        }
+        if (!canned) {
+          key = matchQuestion(text);
+          if (key) canned = responses[key];
+        }
+        if (canned) {
+          if (key) asked.add(key);
+          if (key) lastKey = key;
+          await sleep(reduceMotion ? 0 : 280);
+          await typeAnswer(canned);
+          renderChips(key || lastKey || null);
+          setBusy(false);
+          if (chatInput) chatInput.focus();
+          return;
+        }
+
+        const typing = addMessage('ai', null, true);
+        await sleep(reduceMotion ? 0 : 280);
+        const payload = lastKey ? {
+          lines: [
+            "I don't have that one written down.",
+            "Want more on what we were just talking about, or ask about the fleets, the AI setup, or a bad day."
+          ]
+        } : {
+          lines: [
+            "I don't have that one written down.",
+            "Ask about the fleets, the AI setup, a bad day — or email the real me, ianrelecker@gmail.com."
+          ]
+        };
+
+        typing.remove();
+        await typeAnswer(payload);
+        renderChips(lastKey);
+        setBusy(false);
+        if (chatInput) chatInput.focus();
+      };
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          if (!chatInput) return;
+          const text = chatInput.value.trim();
+          chatInput.value = '';
+          ask(text, null);
+        });
+      }
+
+      addMessage('ai', { lines: ["Hey — I'm Ian. Ask me something."] });
+      announceAnswer({ lines: ["Hey — I'm Ian. Ask me something."] });
+      renderChips();
 
       const triggerBreak = () => {
         if (
