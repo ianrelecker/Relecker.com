@@ -3,7 +3,9 @@
     { "route": "/resume", "rewrite": "/resume.html" },
     { "route": "/systems", "rewrite": "/systems/index.html" },
     { "route": "/pgpkeys", "rewrite": "/pgpkeys.html" },
-    { "route": "/privacy", "rewrite": "/privacy.html" },
+    { "route": "/reflectime/privacy", "rewrite": "/reflectime/privacy.html" },
+    { "route": "/privacy", "redirect": "/reflectime/privacy", "statusCode": 301 },
+    { "route": "/privacy.html", "redirect": "/reflectime/privacy", "statusCode": 301 },
     { "route": "/contact", "rewrite": "/contact.html" },
     { "route": "/security.txt", "rewrite": "/.well-known/security.txt" },
     {
