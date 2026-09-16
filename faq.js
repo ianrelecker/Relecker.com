@@ -405,6 +405,13 @@ window.IAN_FAQ = (function () {
         "Thirty-plus public repos. The ones people ask about: m365mcp, powerbimcp, 365watchdog, cloudterraform, exo-arcocd, dioxideai, MAG, handy-pwsh-scripts, FreshdeskAI, adsec, tenetsec.",
         "github.com/ianrelecker."
       ]
+    },
+    stream: {
+      lines: [
+        "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
+        "I made this. The player is on this page."
+      ],
+      link: { href: "/#live", text: "Watch it here" }
     }
   };
 
@@ -462,6 +469,7 @@ window.IAN_FAQ = (function () {
     powerbi: ['power bi', 'powerbi'],
     siem: ['siem', 'sentinel'],
     githubMore: ['how many repos', 'public repos', 'open source work'],
+    stream: ['twitch', 'blender', 'aibuilds3d', 'aibuilds', 'live stream', 'streaming', 'autonomous blender', '3d model'],
     likejob: ['like your job', 'enjoy your job', 'do you like it', 'fun job'],
     stress: ['stressful', 'burnout', 'overwhelming', 'hard days'],
     oncall: ['on call', 'oncall', 'pager', 'after hours', '2am', '2 a.m'],
@@ -536,7 +544,8 @@ window.IAN_FAQ = (function () {
     mag: ['githubMore', 'stack', 'python'],
     powerbi: ['m365mcp', 'githubMore', 'graph'],
     siem: ['socca', 'malibu', 'security'],
-    githubMore: ['work', 'm365mcp', 'watchdog']
+    githubMore: ['work', 'm365mcp', 'watchdog'],
+    stream: ['ai', 'work', 'hot']
   };
 
   const phrases = {};
@@ -742,6 +751,10 @@ window.IAN_FAQ = (function () {
   put('ai', [
     "what's the ai setup", 'whats the ai setup', 'your ai setup', 'are you an ai guy', 'local models',
     'openchamber', 'ollama', 'do you use ai', 'agents'
+  ]);
+  put('stream', [
+    'blender stream', 'twitch stream', 'aibuilds3d', 'autonomous blender', 'live blender',
+    '3d stream', 'blender modeling', 'what is aibuilds3d'
   ]);
 
   const skillTemplates = [

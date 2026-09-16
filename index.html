@@ -24,7 +24,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/style.css?v=20260908-2">
+   <link rel="stylesheet" href="/style.css?v=20260916-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,9 +40,10 @@
       "description": "Systems, security, and on-device software. Endpoint fleets, incident response, and tools that keep data on the device.",
       "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
       "sameAs": [
-        "https://github.com/ianrelecker",
-        "https://www.linkedin.com/in/ian-relecker/",
-        "https://x.com/ianrelecker"
+         "https://github.com/ianrelecker",
+         "https://www.linkedin.com/in/ian-relecker/",
+         "https://x.com/ianrelecker",
+         "https://www.twitch.tv/aibuilds3d"
       ],
       "knowsAbout": ["endpoint management", "cybersecurity", "Intune", "Jamf", "incident response", "on-device software"],
       "alumniOf": [
@@ -78,10 +79,11 @@
     <div class="nav-inner">
       <a class="mark" href="/">Ian Relecker</a>
       <nav aria-label="Primary">
-        <a href="#ask">Ask</a>
-        <a href="#work">Work</a>
-        <a href="/systems">Systems</a>
-        <a href="/resume">Resume</a>
+         <a href="#ask">Ask</a>
+         <a href="#work">Work</a>
+         <a href="#live">Live</a>
+         <a href="/systems">Systems</a>
+         <a href="/resume">Resume</a>
       </nav>
     </div>
   </header>
@@ -123,7 +125,7 @@
         </div>
       </div>
 
-      <p class="now">Now: twenty fleets, and the unglamorous glue.</p>
+      <p class="now">Now: an agent modeling in Blender, live.</p>
     </section>
 
     <section id="work" class="work">
@@ -148,17 +150,49 @@
           </div>
           <span class="work-go">dioxideai.com ↗</span>
         </a>
-        <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
-          <span class="work-num">03</span>
-          <div class="work-body">
-            <h3>Open source</h3>
-            <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
-          </div>
-          <span class="work-go">github.com/ianrelecker ↗</span>
-        </a>
-      </div>
-    </section>
-  </main>
+         <a class="work-row" href="https://github.com/ianrelecker" target="_blank" rel="me noopener">
+           <span class="work-num">03</span>
+           <div class="work-body">
+             <h3>Open source</h3>
+             <p>Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery, and the other tools I needed enough to write.</p>
+           </div>
+           <span class="work-go">github.com/ianrelecker ↗</span>
+         </a>
+         <a class="work-row" href="#live">
+           <span class="work-num">04</span>
+           <div class="work-body">
+             <h3>Autonomous Blender</h3>
+             <p>An agent building 3D in Blender without stopping. Live on Twitch as aibuilds3d. I made this.</p>
+           </div>
+           <span class="work-go">watch live</span>
+         </a>
+       </div>
+     </section>
+
+     <section id="live" class="live">
+       <div class="section-head">
+         <p class="kicker">live on twitch</p>
+         <h2>Autonomous Blender</h2>
+       </div>
+       <p class="lede">An agent modeling in Blender, nonstop. I made this.</p>
+       <div class="stream">
+         <div class="stream__frame">
+           <iframe
+             id="twitchPlayer"
+             src="https://player.twitch.tv/?channel=aibuilds3d&amp;parent=relecker.com&amp;parent=www.relecker.com&amp;muted=true"
+             allow="autoplay; fullscreen; picture-in-picture"
+             allowfullscreen
+             loading="lazy"
+             title="aibuilds3d — autonomous Blender modeling on Twitch"
+           ></iframe>
+         </div>
+         <div class="stream__meta">
+           <p>twitch.tv/aibuilds3d</p>
+           <a href="https://www.twitch.tv/aibuilds3d" target="_blank" rel="me noopener">Open on Twitch ↗</a>
+         </div>
+       </div>
+     </section>
+   </main>
 
   <footer class="site-foot" id="connect">
     <nav class="elsewhere" aria-label="Elsewhere">
@@ -167,6 +201,7 @@
       <a href="https://github.com/ianrelecker" target="_blank" rel="me noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/ian-relecker/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://x.com/ianrelecker" target="_blank" rel="me noopener">X</a>
+      <a href="https://www.twitch.tv/aibuilds3d" target="_blank" rel="me noopener">Twitch</a>
       <a href="https://dioxideai.com" target="_blank" rel="noopener">Dioxide AI</a>
       <a href="/pgpkeys">PGP</a>
     </nav>
@@ -176,7 +211,7 @@
     </div>
   </footer>
 
-  <script src="/faq.js?v=20260908-2"></script>
+   <script src="/faq.js?v=20260916-1"></script>
   <script>
     (function () {
       const year = document.getElementById('year');
@@ -335,6 +370,13 @@
             "Morning briefs, ticket drafts, this site. If it's repetitive and I have an API, an agent gets a runbook."
           ],
           link: { href: "https://github.com/ianrelecker", text: "GitHub" }
+        },
+        stream: {
+          lines: [
+            "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
+            "I made this. The player is on this page."
+          ],
+          link: { href: "#live", text: "Watch it here" }
         }
       };
 
@@ -348,6 +390,7 @@
         fieldmark:  ['fieldmark', 'field mark', 'ios', 'iphone', 'app', 'pdf', 'on-device', 'on device'],
         dioxide:    ['dioxide', 'dioxide ai'],
         ai:         ['ai guy', 'into ai', 'local model', 'local llm', 'your setup', 'homelab', 'openchamber', 'ollama', 'mcp'],
+        stream:     ['twitch', 'blender', 'aibuilds3d', 'aibuilds', 'live stream', 'streaming', 'autonomous blender', '3d model'],
         rollout:    ['rollout', 'roll out', 'ship', 'deploy', 'dlp', 'phase', 'phases', 'migration', 'fleets not catch', 'catch fire'],
         incident:   ['incident', 'breach', 'compromise', 'hacked', 'attack', 'web shell', 'webshell', 'bad day', 'response', 'ir'],
         automation: ['automate', 'automation', 'script', 'scripting', 'powershell', 'graph', 'tooling'],
@@ -367,6 +410,7 @@
         fieldmark: 'What is FieldMark?',
         dioxide: "What's Dioxide AI?",
         ai: "What's the AI setup?",
+        stream: "What's the Blender stream?",
         rollout: 'How do twenty fleets not catch fire?',
         incident: 'Tell me about a bad day.',
         automation: 'What do you automate?',
@@ -378,13 +422,15 @@
       };
 
       const followUps = {
-        work: ['ai', 'dioxide', 'days'],
+        work: ['ai', 'stream', 'days'],
         days: ['incident', 'automation', 'hire'],
         background: ['malibu', 'hire', 'learning'],
         security: ['incident', 'dioxide', 'rollout'],
         learning: ['ai', 'k8s', 'hot'],
         fieldmark: ['ai', 'hot', 'work'],
         dioxide: ['ai', 'hot', 'security'],
+        ai: ['stream', 'dioxide', 'hot'],
+        stream: ['ai', 'work', 'hot'],
         rollout: ['incident', 'automation', 'days'],
         incident: ['security', 'rollout', 'days'],
         automation: ['stack', 'rollout', 'days'],
@@ -738,6 +784,15 @@
       if (hashtag) hashtag.addEventListener('click', triggerBreak);
     })();
   </script>
-  <script src="/site.js"></script>
-</body>
-</html>
+   <script>
+     (function () {
+       const frame = document.getElementById('twitchPlayer');
+       if (!frame) return;
+       const host = window.location.hostname;
+       if (!host || host === 'relecker.com' || host === 'www.relecker.com') return;
+       frame.src = 'https://player.twitch.tv/?channel=aibuilds3d&parent=' + encodeURIComponent(host) + '&muted=true';
+     })();
+   </script>
+   <script src="/site.js"></script>
+ </body>
+ </html>
