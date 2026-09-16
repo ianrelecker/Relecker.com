@@ -409,7 +409,7 @@ window.IAN_FAQ = (function () {
     stream: {
       lines: [
         "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
-        "I made this. The player is on this page."
+        "The player is on this page."
       ],
       link: { href: "/#live", text: "Watch it here" }
     }

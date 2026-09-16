@@ -24,7 +24,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
-   <link rel="stylesheet" href="/style.css?v=20260916-1">
+   <link rel="stylesheet" href="/style.css?v=20260916-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -162,7 +162,7 @@
            <span class="work-num">04</span>
            <div class="work-body">
              <h3>Autonomous Blender</h3>
-             <p>An agent building 3D in Blender without stopping. Live on Twitch as aibuilds3d. I made this.</p>
+              <p>An agent building 3D in Blender without stopping. Live on Twitch as aibuilds3d.</p>
            </div>
            <span class="work-go">watch live</span>
          </a>
@@ -174,18 +174,19 @@
          <p class="kicker">live on twitch</p>
          <h2>Autonomous Blender</h2>
        </div>
-       <p class="lede">An agent modeling in Blender, nonstop. I made this.</p>
-       <div class="stream">
-         <div class="stream__frame">
-           <iframe
-             id="twitchPlayer"
-             src="https://player.twitch.tv/?channel=aibuilds3d&amp;parent=relecker.com&amp;parent=www.relecker.com&amp;muted=true"
-             allow="autoplay; fullscreen; picture-in-picture"
-             allowfullscreen
-             loading="lazy"
-             title="aibuilds3d — autonomous Blender modeling on Twitch"
-           ></iframe>
-         </div>
+        <p class="lede">An agent modeling in Blender, nonstop.</p>
+        <div class="stream">
+          <div class="stream__frame">
+            <iframe
+              id="twitchPlayer"
+              src="https://player.twitch.tv/?channel=aibuilds3d&amp;parent=relecker.com&amp;muted=true"
+              width="1280"
+              height="720"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              title="aibuilds3d — autonomous Blender modeling on Twitch"
+            ></iframe>
+          </div>
          <div class="stream__meta">
            <p>twitch.tv/aibuilds3d</p>
            <a href="https://www.twitch.tv/aibuilds3d" target="_blank" rel="me noopener">Open on Twitch ↗</a>
@@ -211,7 +212,7 @@
     </div>
   </footer>
 
-   <script src="/faq.js?v=20260916-1"></script>
+   <script src="/faq.js?v=20260916-2"></script>
   <script>
     (function () {
       const year = document.getElementById('year');
@@ -374,7 +375,7 @@
         stream: {
           lines: [
             "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
-            "I made this. The player is on this page."
+            "The player is on this page."
           ],
           link: { href: "#live", text: "Watch it here" }
         }
@@ -788,8 +789,7 @@
      (function () {
        const frame = document.getElementById('twitchPlayer');
        if (!frame) return;
-       const host = window.location.hostname;
-       if (!host || host === 'relecker.com' || host === 'www.relecker.com') return;
+       const host = window.location.hostname || 'relecker.com';
        frame.src = 'https://player.twitch.tv/?channel=aibuilds3d&parent=' + encodeURIComponent(host) + '&muted=true';
      })();
    </script>
