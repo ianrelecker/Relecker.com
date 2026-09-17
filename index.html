@@ -81,7 +81,7 @@
       <nav aria-label="Primary">
          <a href="#ask">Ask</a>
          <a href="#work">Work</a>
-         <a href="#live">Live</a>
+          <a href="#live">Stream</a>
          <a href="/systems">Systems</a>
          <a href="/resume">Resume</a>
       </nav>
@@ -161,36 +161,36 @@
          <a class="work-row" href="#live">
            <span class="work-num">04</span>
            <div class="work-body">
-             <h3>Autonomous Blender</h3>
-              <p>An agent building 3D in Blender without stopping. Live on Twitch as aibuilds3d.</p>
-           </div>
-           <span class="work-go">watch live</span>
+              <h3>Autonomous Blender</h3>
+               <p>An agent built 3D in Blender on Twitch as aibuilds3d. The last stream is on this page.</p>
+            </div>
+            <span class="work-go">watch</span>
          </a>
        </div>
      </section>
 
      <section id="live" class="live">
        <div class="section-head">
-         <p class="kicker">live on twitch</p>
-         <h2>Autonomous Blender</h2>
-       </div>
-        <p class="lede">An agent modeling in Blender, nonstop.</p>
-        <div class="stream">
-          <div class="stream__frame">
-            <iframe
-              id="twitchPlayer"
-              src="https://player.twitch.tv/?channel=aibuilds3d&amp;parent=relecker.com&amp;muted=true"
-              width="1280"
-              height="720"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="aibuilds3d — autonomous Blender modeling on Twitch"
-            ></iframe>
+          <p class="kicker">last stream</p>
+          <h2>Autonomous Blender</h2>
+        </div>
+         <p class="lede">The last aibuilds3d stream. An agent modeling in Blender.</p>
+         <div class="stream">
+           <div class="stream__frame">
+             <iframe
+               id="twitchPlayer"
+               src="https://player.twitch.tv/?video=2876022203&amp;parent=relecker.com&amp;muted=true"
+               width="1280"
+               height="720"
+               allow="autoplay; fullscreen; picture-in-picture"
+               allowfullscreen
+               title="aibuilds3d — last autonomous Blender stream"
+             ></iframe>
+           </div>
+          <div class="stream__meta">
+            <p>twitch.tv/videos/2876022203</p>
+            <a href="https://www.twitch.tv/videos/2876022203" target="_blank" rel="me noopener">Open on Twitch ↗</a>
           </div>
-         <div class="stream__meta">
-           <p>twitch.tv/aibuilds3d</p>
-           <a href="https://www.twitch.tv/aibuilds3d" target="_blank" rel="me noopener">Open on Twitch ↗</a>
-         </div>
        </div>
      </section>
    </main>
@@ -374,8 +374,8 @@
         },
         stream: {
           lines: [
-            "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
-            "The player is on this page."
+            "An agent built 3D in Blender on Twitch as aibuilds3d. The last stream is on this page.",
+            "The recording is embedded below."
           ],
           link: { href: "#live", text: "Watch it here" }
         }
@@ -790,7 +790,7 @@
        const frame = document.getElementById('twitchPlayer');
        if (!frame) return;
        const host = window.location.hostname || 'relecker.com';
-       frame.src = 'https://player.twitch.tv/?channel=aibuilds3d&parent=' + encodeURIComponent(host) + '&muted=true';
+        frame.src = 'https://player.twitch.tv/?video=2876022203&parent=' + encodeURIComponent(host) + '&muted=true';
      })();
    </script>
    <script src="/site.js"></script>
