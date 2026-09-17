@@ -125,7 +125,7 @@
         </div>
       </div>
 
-      <p class="now">Last up: the aibuilds3d Blender stream.</p>
+      <p class="now">Now: an agent modeling in Blender, live.</p>
     </section>
 
     <section id="work" class="work">
@@ -162,34 +162,34 @@
            <span class="work-num">04</span>
            <div class="work-body">
               <h3>Autonomous Blender</h3>
-               <p>An agent built 3D in Blender on Twitch as aibuilds3d. The last stream is on this page.</p>
+               <p>An agent building 3D in Blender without stopping. Live on Twitch as aibuilds3d.</p>
             </div>
-            <span class="work-go">watch</span>
+            <span class="work-go">watch live</span>
          </a>
        </div>
      </section>
 
      <section id="live" class="live">
        <div class="section-head">
-          <p class="kicker">last stream</p>
+          <p class="kicker">live on twitch</p>
           <h2>Autonomous Blender</h2>
         </div>
-         <p class="lede">The last aibuilds3d stream. An agent modeling in Blender.</p>
+         <p class="lede">An agent modeling in Blender, nonstop.</p>
          <div class="stream">
            <div class="stream__frame">
              <iframe
                id="twitchPlayer"
-               src="https://player.twitch.tv/?video=2876022203&amp;parent=relecker.com&amp;muted=true"
+               src="https://player.twitch.tv/?channel=aibuilds3d&amp;parent=relecker.com&amp;muted=true"
                width="1280"
                height="720"
                allow="autoplay; fullscreen; picture-in-picture"
                allowfullscreen
-               title="aibuilds3d — last autonomous Blender stream"
+               title="aibuilds3d — autonomous Blender modeling on Twitch"
              ></iframe>
            </div>
           <div class="stream__meta">
-            <p>twitch.tv/videos/2876022203</p>
-            <a href="https://www.twitch.tv/videos/2876022203" target="_blank" rel="me noopener">Open on Twitch ↗</a>
+            <p>twitch.tv/aibuilds3d</p>
+            <a href="https://www.twitch.tv/aibuilds3d" target="_blank" rel="me noopener">Open on Twitch ↗</a>
           </div>
        </div>
      </section>
@@ -374,8 +374,8 @@
         },
         stream: {
           lines: [
-            "An agent built 3D in Blender on Twitch as aibuilds3d. The last stream is on this page.",
-            "The recording is embedded below."
+            "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
+            "The player is on this page."
           ],
           link: { href: "#live", text: "Watch it here" }
         }
@@ -790,7 +790,7 @@
        const frame = document.getElementById('twitchPlayer');
        if (!frame) return;
        const host = window.location.hostname || 'relecker.com';
-        frame.src = 'https://player.twitch.tv/?video=2876022203&parent=' + encodeURIComponent(host) + '&muted=true';
+        frame.src = 'https://player.twitch.tv/?channel=aibuilds3d&parent=' + encodeURIComponent(host) + '&muted=true';
      })();
    </script>
    <script src="/site.js"></script>

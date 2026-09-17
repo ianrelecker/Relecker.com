@@ -408,8 +408,8 @@ window.IAN_FAQ = (function () {
     },
     stream: {
       lines: [
-        "An agent built 3D in Blender on Twitch as aibuilds3d. The last stream is on this page.",
-        "The recording is embedded below."
+        "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
+        "The player is on this page."
       ],
       link: { href: "/#live", text: "Watch it here" }
     }
