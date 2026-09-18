@@ -16,7 +16,7 @@ Ian Relecker keeps endpoint fleets honest and builds small, sharp software. He a
 ## Projects
 
 - Endpoint systems — roughly twenty client fleets (Intune, Jamf, RMM, EDR); the long-form write-up: https://relecker.com/systems
-- Dioxide AI — local LLM chat with web results; context stays put: https://dioxideai.com
+- Dioxide AI — local LLM chat with web results; context stays put: https://github.com/ianrelecker/dioxideai
 - FieldMark — on-device iOS field log (photo, markup, PDF; no accounts, no backend, no telemetry): https://relecker.com/fieldmark/
 - Open source — Microsoft Graph MCP, multi-cloud Terraform, Kubernetes delivery: https://github.com/ianrelecker
 - Autonomous Blender — an agent modeling live in Blender, streamed on Twitch: https://www.twitch.tv/aibuilds3d (embedded at https://relecker.com/#live)
