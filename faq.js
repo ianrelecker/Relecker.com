@@ -408,8 +408,8 @@ window.IAN_FAQ = (function () {
     },
     stream: {
       lines: [
-        "An agent building 3D in Blender, nonstop, streamed on Twitch as aibuilds3d.",
-        "The player is on this page."
+        "Night Circuit Radio composes electronic music continuously — every note synthesized and arranged live on my server.",
+        "It moves through ambient, house, techno, synthwave, and breakbeat. The YouTube player is on this page."
       ],
       link: { href: "/#live", text: "Watch it here" }
     }
@@ -469,7 +469,7 @@ window.IAN_FAQ = (function () {
     powerbi: ['power bi', 'powerbi'],
     siem: ['siem', 'sentinel'],
     githubMore: ['how many repos', 'public repos', 'open source work'],
-    stream: ['twitch', 'blender', 'aibuilds3d', 'aibuilds', 'live stream', 'streaming', 'autonomous blender', '3d model'],
+    stream: ['youtube', 'radio', 'night circuit', 'electronic music', 'generative music', 'live stream', 'streaming', 'ambient', 'house', 'techno', 'synthwave', 'breakbeat', 'twitch', 'blender', 'aibuilds3d', 'autonomous blender'],
     likejob: ['like your job', 'enjoy your job', 'do you like it', 'fun job'],
     stress: ['stressful', 'burnout', 'overwhelming', 'hard days'],
     oncall: ['on call', 'oncall', 'pager', 'after hours', '2am', '2 a.m'],
@@ -753,8 +753,9 @@ window.IAN_FAQ = (function () {
     'openchamber', 'ollama', 'do you use ai', 'agents'
   ]);
   put('stream', [
-    'blender stream', 'twitch stream', 'aibuilds3d', 'autonomous blender', 'live blender',
-    '3d stream', 'blender modeling', 'what is aibuilds3d'
+    'night circuit', 'night circuit radio', 'youtube stream', 'live radio', 'electronic radio',
+    'generative music', 'generative electronic music', 'what are you streaming', 'what is the radio',
+    'blender stream', 'twitch stream', 'aibuilds3d', 'autonomous blender', 'what happened to the blender stream'
   ]);
 
   const skillTemplates = [
