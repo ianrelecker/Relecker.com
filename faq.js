@@ -260,12 +260,6 @@ window.IAN_FAQ = (function () {
         "cloudterraform — a multi-cloud Terraform template library. exo-arcocd — Kubernetes workload delivery through ArgoCD. Both public on GitHub."
       ]
     },
-    fieldmarkFree: {
-      lines: [
-        "FieldMark is free. Photograph, mark up, PDF. No account, no FieldMark backend, no telemetry."
-      ],
-      link: { href: "/fieldmark/", text: "Look at FieldMark" }
-    },
     physical: {
       lines: [
         "Yes. Rack-and-stack, structured cabling, MDF/IDF closet buildout, UPS, multi-site hardware refresh, component-level repair.",
@@ -408,10 +402,10 @@ window.IAN_FAQ = (function () {
     },
     stream: {
       lines: [
-        "Night Circuit Radio composes electronic music continuously — every note synthesized and arranged live on my server.",
-        "It moves through ambient, house, techno, synthwave, and breakbeat. The YouTube player is on this page."
+         "Electronic Radio composes music continuously — every note synthesized and arranged live on my server.",
+        "It moves through ambient, house, techno, synthwave, and breakbeat. You can find it on YouTube."
       ],
-      link: { href: "/#live", text: "Watch it here" }
+      link: { href: "https://www.youtube.com/@relecker/live", text: "Watch on YouTube" }
     }
   };
 
@@ -443,7 +437,6 @@ window.IAN_FAQ = (function () {
     socca: ['socca', 'cve pipeline', 'sentinel', 'vulnerability intelligence'],
     m365mcp: ['m365mcp', 'graph mcp', 'mcp server'],
     terraformProj: ['cloudterraform', 'exo-arcocd', 'argocd', 'argo cd'],
-    fieldmarkFree: ['free', 'price of fieldmark', 'cost of fieldmark', 'app store'],
     physical: ['rack', 'cabling', 'closet', 'hardware refresh', 'break fix', 'break-fix', 'hands on'],
     linux: ['linux', 'qless', 'ubuntu', 'debian'],
     intune: ['intune'],
@@ -469,7 +462,7 @@ window.IAN_FAQ = (function () {
     powerbi: ['power bi', 'powerbi'],
     siem: ['siem', 'sentinel'],
     githubMore: ['how many repos', 'public repos', 'open source work'],
-    stream: ['youtube', 'radio', 'night circuit', 'electronic music', 'generative music', 'live stream', 'streaming', 'ambient', 'house', 'techno', 'synthwave', 'breakbeat', 'twitch', 'blender', 'aibuilds3d', 'autonomous blender'],
+    stream: ['youtube', 'radio', 'electronic radio', 'electronic music', 'generative music', 'live stream', 'streaming', 'ambient', 'house', 'techno', 'synthwave', 'breakbeat', 'twitch', 'blender', 'aibuilds3d', 'autonomous blender'],
     likejob: ['like your job', 'enjoy your job', 'do you like it', 'fun job'],
     stress: ['stressful', 'burnout', 'overwhelming', 'hard days'],
     oncall: ['on call', 'oncall', 'pager', 'after hours', '2am', '2 a.m'],
@@ -519,7 +512,6 @@ window.IAN_FAQ = (function () {
     socca: ['work', 'hot', 'github'],
     m365mcp: ['graph', 'automation', 'github'],
     terraformProj: ['k8s', 'github', 'learning'],
-    fieldmarkFree: ['fieldmark', 'hot', 'work'],
     physical: ['geek', 'malibu', 'days'],
     linux: ['stack', 'malibu', 'learning'],
     intune: ['jamf', 'rollout', 'days'],
@@ -643,13 +635,6 @@ window.IAN_FAQ = (function () {
   put('socca', ['socca', 'socca.tech', 'cve pipeline', 'vulnerability intelligence']);
   put('m365mcp', ['m365mcp', 'graph mcp', 'microsoft graph mcp']);
   put('terraformProj', ['cloudterraform', 'exo-arcocd', 'argocd project']);
-  put('fieldmark', [
-    'what is fieldmark', 'tell me about fieldmark', 'field mark', 'your ios app', 'field logging app'
-  ]);
-  put('fieldmarkFree', [
-    'is fieldmark free', 'how much is fieldmark', 'fieldmark price', 'does fieldmark cost money',
-    'fieldmark on the app store'
-  ]);
   put('dioxide', [
     'what is dioxide', 'dioxide ai', 'your chatbot', 'local llm product'
   ]);
@@ -753,7 +738,7 @@ window.IAN_FAQ = (function () {
     'openchamber', 'ollama', 'do you use ai', 'agents'
   ]);
   put('stream', [
-    'night circuit', 'night circuit radio', 'youtube stream', 'live radio', 'electronic radio',
+    'youtube stream', 'live radio', 'electronic radio',
     'generative music', 'generative electronic music', 'what are you streaming', 'what is the radio',
     'blender stream', 'twitch stream', 'aibuilds3d', 'autonomous blender', 'what happened to the blender stream'
   ]);

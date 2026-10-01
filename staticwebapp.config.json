@@ -37,6 +37,14 @@
       "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
     },
     {
+      "route": "/home.css",
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
+    },
+    {
+      "route": "/footer.css",
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
+    },
+    {
       "route": "/site.js",
       "headers": { "Cache-Control": "public, max-age=0, must-revalidate" }
     },

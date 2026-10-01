@@ -774,8 +774,8 @@ main { padding-bottom: 88px; }
   color: var(--muted) !important;
 }
 
-.essay-out a { color: var(--accent); text-decoration: none; }
-.essay-out a:hover { border-bottom: 1px solid var(--accent); }
+.essay-out a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.essay-out a:hover { text-decoration-thickness: 2px; }
 
 .site-foot {
   display: flex;
@@ -878,6 +878,7 @@ main { padding-bottom: 88px; }
 
 .key-block header {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 12px;
@@ -885,6 +886,9 @@ main { padding-bottom: 88px; }
 }
 
 .key-block h2 {
+  min-width: 0;
+  flex: 1 1 200px;
+  overflow-wrap: anywhere;
   margin: 0;
   font-size: 1rem;
   font-weight: 500;

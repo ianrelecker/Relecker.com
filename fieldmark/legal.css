@@ -17,6 +17,7 @@ body {
   background: var(--bg);
   font-family: var(--sans);
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 h1 {

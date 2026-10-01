@@ -126,8 +126,9 @@
   const setActive = (id) => {
     hashLinks.forEach((link) => {
       const match = (link.hash || '').replace(/^#/, '') === id;
-      if (match) link.classList.add('is-active');
-      else link.classList.remove('is-active');
+      link.classList.toggle('is-active', match);
+      if (match) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
     });
   };
 
