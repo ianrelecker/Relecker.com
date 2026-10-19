@@ -13,6 +13,12 @@ Ian Relecker keeps endpoint fleets honest and builds small, sharp software. He a
 - Certification: Microsoft Azure Solutions Architect Expert
 - Tagline he actually uses: computer person
 
+## AI stack
+
+- Current AI stack: Codex and Notion.
+- Codex for engineering tasks and agent-assisted work; Notion for notes, tasks, and follow-ups.
+- Dioxide AI is a separate local-model project.
+
 ## Projects
 
 - Endpoint systems — roughly twenty client fleets (Intune, Jamf, RMM, EDR); the long-form write-up: https://relecker.com/systems

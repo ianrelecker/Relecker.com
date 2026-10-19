@@ -735,6 +735,7 @@ window.IAN_FAQ = (function () {
   put('english', ['plain english', 'eli5', 'explain like im five', 'in simple terms']);
   put('ai', [
     "what's the ai setup", 'whats the ai setup', 'your ai setup', 'are you an ai guy', 'local models',
+    'codex', 'notion', 'ai stack', 'what is your ai stack', 'whats your ai stack',
     'openchamber', 'ollama', 'do you use ai', 'agents'
   ]);
   put('stream', [
