@@ -15,7 +15,8 @@ Ian Relecker keeps endpoint fleets honest and builds small, sharp software. He a
 
 ## AI stack
 
-- Current AI stack: Codex and Notion.
+- Work AI stack: Codex and Notion.
+- Personal AI stack: Grokbot.
 - Codex for engineering tasks and agent-assisted work; Notion for notes, tasks, and follow-ups.
 - Dioxide AI is a separate local-model project.
 
