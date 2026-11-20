@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Managed functions for relecker.com (Azure Static Web Apps)",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
+  }
+}
