@@ -8,7 +8,9 @@ const SAFE_HEADERS = new Set([
   'x-echo-token-2',
   'x-echo-alt',
   'x-canary',
-  'content-type'
+  'content-type',
+  'x-zendesk-webhook-signature',
+  'x-zendesk-webhook-signature-timestamp'
 ]);
 
 const SAFE_QUERY = new Set(['t2', 'canary']);
