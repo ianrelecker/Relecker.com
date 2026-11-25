@@ -35,7 +35,9 @@ module.exports = async function (context, req) {
   }
 
   let body = null;
-  if (Buffer.isBuffer(req.body)) {
+  if (typeof req.rawBody === 'string') {
+    body = req.rawBody;
+  } else if (Buffer.isBuffer(req.body)) {
     body = req.body.toString('utf8');
   } else if (req.body !== undefined && req.body !== null) {
     body = typeof req.body === 'object'
